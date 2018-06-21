@@ -1,0 +1,152 @@
+/*椤甸潰鏍峰紡*/
+.courseBody{
+    height:1000px;
+    margin:30px 0;
+}
+.courseRight,.courseLeft{
+    border:1px solid #cccccc;
+    height:100%;
+}
+.courseLeft{
+    float: left;
+    width:78%;
+    padding: 15px;
+}
+.cousreLeft_top img{
+    width:100%;
+    height:500px;
+}
+/*courseLeft_top class 无图片的时候显示的内容*/
+.cousreLeft_top .cousreLeftTop_sImg>i{
+	display:inline-block;
+	width:100%;
+	height:500px;
+	line-height:500px;
+	background: rgba(245,245,245,0.81);
+	color: rgba(130,92,88,0.9);
+    text-align: center;
+    border:1px solid #ccc;
+    font-size:22px;
+}
+/*结束*/
+
+
+
+.courseRight{
+    width:18%;
+    float: right;
+    height:965px;
+}
+.courseLeft .h3{
+	margin-top:20px;
+}
+.courseLeft .h3 a{
+	text-decoration:none;
+	border-radius: 2px;
+	padding: 15px;
+	margin-bottom: 20px;
+	display: inline-block;
+	margin-left: 60px;
+	color:#333;
+	font-size:18px;
+}
+.courseLeft .h3 a:hover{
+	text-decoration:none;
+}
+.courseLeft .h3>button{
+	margin-left:100px;
+}
+.aH3{
+	 border-bottom: 4px solid red;
+	 text-decoration:none;
+}
+.courseLeft_bottom{
+    margin:30px 0;
+    height:300px;
+    overflow:auto;
+    position: relative;
+}
+.courseLeft_bottom form{
+    margin-left: 30px;
+}
+.courseLeft_bottom table{
+    width:100%;
+    background: #eee;
+    font-size: 16px;
+    border: 1px solid #ccc;
+}
+.courseLeft_bottom table tr{
+    height:35px;
+}
+.courseLeft_bottom table td,.courseLeft_bottom table th{
+    text-align: center;
+}
+.courseLeft_bottom table th{  color: red;}
+.courseLeft_bottom td a button:first-child{ margin-right: 20px; }
+.courseLeft_bottom td a button{
+    border: none;
+    background:#1D8FDB;
+    color: #FFFFff;
+}
+.courseRight h3{
+    background:#1a6cb9;
+    color: #FFFFFF;
+    height:40px;
+    line-height: 40px;
+    margin-top: 0;
+    padding-left:15px;
+}
+.courseRight .courseBase{
+    margin: 20px 10px;
+}
+.courseRight .courseBase p{
+    height: 30px;
+    line-height: 30px;
+    border-bottom: 1px solid #cccccc;
+    padding-left:8px;
+}
+.courseRight .courseBase p:hover{
+    background: #EEEEEE;
+}
+/*回答提问*/
+.couseS_wenti{
+	position:relative;
+	overflow-y: auto;
+    height: 320px;
+	margin-left:20px;
+}
+.couseS_wenti>a{
+	text-align: center;
+	display: inline-block;
+	width: 100%;
+
+}
+.couseS_wenti .wenti_p a:hover{
+	text-decoration:none;
+}
+.wenti_p{ margin:20px 0;border-bottom: 2px solid #f9f3f3;}
+.wenti_p h4>a{
+	margin:0 10px;
+	color: #333;
+	font-size: 22px;
+
+}
+.wenti_p .p_a a{
+	color:#333;
+	font-size:18px;
+	margin:10px 0;
+}
+.wenti_p .p_a a:hover{
+	color: #1215e1;
+}
+.wenti_p>p span{
+	color:#999;
+	margin-right:120px;
+	font-size:12px;
+}
+
+#sAnwser>button{
+	width: 95%;
+	margin-left: 15px;
+	margin-bottom: 15px;
+}

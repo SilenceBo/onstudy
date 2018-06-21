@@ -1,0 +1,239 @@
+/*问答的css样式*/
+.queMain{
+    height:900px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+.que_top ul{
+    list-style: none;
+    margin-right:10%;
+    margin-top: 15px;
+}
+.que_top ul>li{
+    display: inline-block;
+    width:100px;
+    height:35px;
+    text-align: center;
+    line-height: 35px;
+}
+
+.onActive{
+	display:inline-block;
+    color:red;
+    text-decoration: none;
+}
+
+.que_top ul>li a{ font-size: 16px;}
+/* .que_top ul>li a:hover{  } */
+.que_top{ overflow: hidden; border-bottom: 2px solid #cccccc; }
+.queLeft{
+    width:73%;
+    padding-right: 50px;
+}
+.queRight{
+    width:23%;
+}
+.que_pro,.que_pInfo{
+    position: relative;
+    overflow: auto;
+}
+.que_pro ul{ list-style:none; margin-bottom:50px;}
+.que_pro ul>li{ display: inline-flex;color: #9C9C9C; border-bottom: 1px solid #cccccc;width:100%;margin-top: 15px;}
+.que_pro ul>li .proImg img{
+    width:60px;
+    height:60px;
+    border-radius: 60px;
+    margin-left: 15px;
+}
+.que_pro span{ font-size: 12px; }
+.proDet{ margin-left: 50px; }
+.proDet .del{
+	margin-left: 65%;
+	margin-top: -15px;
+	font-size: 12px;
+	padding: 7px;
+    background: #f00
+}
+.proDet h5{
+    font-size: 16px;
+    font-style: normal;
+    color: #333333;
+    font-weight: bold;
+}
+.proDet span{ 
+	
+}
+.proDet a{
+    margin-left: 20px;
+    color: #333333;
+}
+.proDet a:hover{ color:red;text-decoration:underline; }
+.queRight .proSea_top{
+    background: #eee;
+    padding: 35px 0;
+}
+.proSea_top input{
+    border: 1px solid red;
+    height:100%;
+    line-height: 100%;
+    padding-left: 15px;
+}
+.proSea_top button{
+    border:none;
+    background:#C81B1D;
+    color: #FFFFff;
+}
+.proSea_top p:first-child{
+    height: 35px;
+    text-align: center;
+}
+.proSea_top p:first-child button{
+    height:100%;
+    line-height: 100%;
+}
+.proSea_top p:last-child button{
+    width:110px;
+    height:30px;
+    line-height:30px;
+    margin-top:25px;
+    margin-left:75px;
+}
+.proSea_bot ul{ list-style: none; }
+.proSea_bot h4{
+    font-weight: bold;
+    padding:15px 0 20px 15px;
+    border-bottom: 1px solid #cccccc;
+
+}
+.proSea_bot ul>li{
+    padding-left: 15px;
+    margin: 15px 0;
+}
+.proSea_bot ul>li a{ color:#999999; }
+.proSea_bot ul>li a:hover{ color:#1D8FDB;  }
+
+/*问题回答*/
+
+.proInfo{
+    width:100%;
+    height:50px;
+    line-height: 50px;
+}
+.proInfo img{
+    width:40px;
+    height:40px;
+    border-radius: 40px;
+    margin:0 15px;
+}
+.proInfo span{color: #999999;}
+.proInfo i{color:#cccccc;}
+.proInfo .span{ background:rgb(229,243,250);color: rgb(78,136,204);padding:5px;}
+.proInfo p:last-child span{ margin-right: 40px; }
+
+.queLeft>p{ color:#999999; }
+.queLeft>h3{ font-weight: bold;font-size: 25px; }
+.queLeft .noSign{ background:rgb(246,246,246);height:60px;line-height: 60px;margin:15px 0; text-align: center;}
+.queLeft .noSign a{ color:red; margin:0 5px;}
+.queLeft .proShu{ font-size: 20px; }
+.queLeft .proShu i{ margin:0 10px; }
+.que_pInfo li{ display: inline-flex;color:#999999; border-top: 1px solid #cccccc;padding:15px; width:100%;}
+.que_pInfo .proImg img{ width:40px; height:40px; margin-left: 25px;}
+.proDet{ width:100%; }
+.proDet p:first-child{ color:#333333;font-size: 16px; }
+.proDet p:last-child{ font-size: 12px; }
+.proDet p a{ color:#999988;margin:10px 30px 0 0;}
+
+/*回答问题部分的高度*/
+.queMains{ margin-top: 30px; overflow:hidden}
+
+/*登录注册模态框 按钮 样式 */
+/*登录设置*/
+.modal-title h3{ text-align: center; }
+.modal_sign,.modal_login{ background: #EEEEEE; }
+
+.modal_sign table,.modal_login table{
+    margin-left: 90px;
+    font-size: 18px;
+    font-weight: normal;
+    margin-top: 20px;
+}
+.modal_sign tr,.modal_login tr{
+    height: 50px;
+}
+.modal_sign input,.modal_login input{
+    display: inline-block;
+    width:240px;
+    line-height: 35px;
+    border: 1px solid #cccccc;
+    padding-left:15px;
+    font-size:14px;
+}
+.modal_sign input:focus,.modal_login input:focus{ border: 1px solid #1D8FDB; }
+.modal_sign button{
+    background: #1D8FDB;
+    border: none;
+    color: #FFFFFF;
+    width:100%;
+    height:35px;
+    line-height: 35px;
+    font-size: 16px;
+    text-align: center;
+}
+/* 招回密码 */
+#findPass{
+	font-size:12px;
+	margin:5px;
+	float:right;
+	color:red;
+}
+.modal_login .sex input{
+    width:15px;
+    margin-left:40px;
+}
+.selClass select{ font-size: 14px;width:240px;height: 35px;padding-left: 15px;}
+.modal_btn button:first-child{ background:#337ab7;float: right; color:#FFFFFF;}
+/*验证表单样式*/
+#valiAccount,#valiPwd{
+    color:red;
+    font-size: 14px;
+    padding-left: 7px;
+    margin-top: 13px;
+}
+.page1{ margin-top:50px; }
+
+/*提问模态框*/
+.form-group span{
+    margin:20px 0;
+}
+.form-group input{
+    border:1px solid red;
+    margin-bottom: 15px;
+}
+.form-group textarea{
+    margin: 15px 0;
+}
+.textSign{
+    background: #EEEEEE;
+    padding: 10px 40px;
+    margin: 15px 0;
+}
+.textSign_top{ height:32px;background: #cccccc;line-height: 32px;color: #333;padding: 0 10px; }
+.textSign_text textarea{
+    width:100%;
+}
+
+.que_pro{
+	display: none;
+}
+.oon{
+	display:block;
+}
+#edit_question{
+	font-size: 18px;
+	margin-left: 20px;
+	width: 30px;
+	height: 30px;
+	line-height: 17px;
+    padding: 5px 2px 5px 5px;
+}
+

@@ -1,0 +1,38 @@
+/*公共样式*/
+.hide{ display: none; }
+.show{ display: block; }
+.aLi{
+	border:1px solid #eee;
+	border-bottom:none;
+	background: #fff;
+	text-decoration: none;
+}
+/*主体部分css样式*/
+.sContainer .sConNav>ul{
+	height: 60px;
+	text-align: center;
+	line-height: 60px;
+	background: #f2f9fd; 
+}
+.sContainer .sConNav>ul>li{
+	display: inline-block;
+	margin: 0 15px;
+	padding: 0 30px;
+	height: 100%;
+	font-size: 22px;
+	color: #999;
+	cursor:pointer;
+}
+
+.sTal_table table{
+	font-size: 16px;
+	width:100%;
+}
+.sTal_table table tr{
+	height: 45px;
+	line-height: 45px;
+}
+.sContainer{
+	width:90%;
+	margin:0 auto;
+}

@@ -1,0 +1,46 @@
+/* 瀵嗙爜 */
+.find_pass{
+	margin:0 auto;
+	width:400px;
+	margin-top:20px;
+}
+.pass_text a{
+	color:red;
+}
+.pass_text{  
+	margin:0 auto;
+	width:400px;
+	margin-top:50px;
+	height:50px;
+	line-height:50px;
+}
+.pass_text h3{
+	float:left;
+}
+.pass_text span{
+	float:right;
+}
+.find_pass button{
+    background: #1D8FDB;
+    border: none;
+    color: #FFFFFF;
+    width:100%;
+    height:35px;
+    line-height: 35px;
+    font-size: 16px;
+    text-align: center;
+}
+.find_pass tr{
+	height:60px;
+	line-height:60px;
+}
+/* 婵�椿 */
+.p{
+	height:60%;
+	line-height:70%;
+	line-height:400px;
+	font-size:24px;
+	color:red;
+	font-weight:bolder;
+	margin-left:40%;
+}

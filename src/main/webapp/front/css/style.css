@@ -1,0 +1,878 @@
+/*公共样式*/
+body{
+	padding-right: 0!important;	
+}
+.comWidth{
+    width:1150px;
+    margin: 0 auto;
+}
+.hide{
+    display: none;
+}
+.show{
+    display: block;
+}
+.mask{
+    display: none;
+    position:fixed;
+    top:0;
+    right:0;
+    left:0;
+    bottom:0;
+    background:rgb(0,0,0,0);
+    z-index: 2;
+}
+.fl{  float: left; }
+.fr{  float: right;  }
+/*字体样式*/
+.glyphicon{
+    width:30px;
+    height:30px;
+    background: transparent;
+    text-align: center;
+}
+
+/*动态添加的样式*/
+.onLogo{
+    display: inline-block;
+    border-bottom:4px solid rgb(45,130,197);
+}
+.onPage{
+    color: #FFFFFF;
+    background: rgb(204,0,0);
+}
+.on{
+    background:#fff;
+    color: #FFFFFF;
+}
+.courseOn{
+	background:#1c75c1;
+	color:#fff;
+}
+.on a{ color:#fff; }
+/*top 顶部样式*/
+.top{
+    width:100%;
+    height:75px;
+    background: rgb(240,240,240);
+    font-size:16px;
+}
+.logoLeft{
+    float:left;
+    height:70px;
+    line-height:70px;
+    position:relative;
+}
+.logoLeft img{
+	
+	width:65px;
+	height:65px;
+	position:absolute;
+	top:6px;
+	left:5px;
+}
+
+.logoLeft span{ margin-left:120px; }
+.logoLeft span a{
+    color:#333; 
+    display:inline-block;
+    width:95px;
+    height:70px;
+    line-height: 70px;
+    text-align:center;
+    margin-top:2px;
+}
+.logoRight a{
+	color:#333; 
+    display:inline-block;
+    /* width:120px; */
+    /* margin:0 40px 0 5px; */
+    /* height:70px; */
+    line-height: 70px;
+    text-align:center;
+}
+
+.logoRight .active{
+	margin-right:26px;
+}
+.logoLeft a:hover{
+    background: rgb(228,228,228);
+    text-decoration:underline;
+}
+.logoRight{
+    float: right;
+    margin-right:30px;
+}
+.logoRight span{
+    margin:0 5px;
+}
+.logoRight a:hover{
+    text-decoration:underline;
+}
+.logoLeft .xyinfo{
+	display:inline-block;
+	margin-left:80px;
+	cursor:default;
+	/* width:100px;
+	height:60px;
+	float:left; */
+}
+
+/*主体部分样式*/
+.mainCourse{
+    margin-bottom: 50px;
+    position:relative;
+}
+.mainCourse h2{
+    margin:20px 0 10px 0;
+}
+.classIfication{
+    border-bottom:1px solid #cccccc;
+    padding:30px 0 0 15px;
+    height:65px;
+    margin:0 0 30px 0;
+}
+.classIntere{
+    border-top:none;
+    margin-top: -20px;
+}
+.classIfication .classiUl{
+	margin-top:-33px;
+}
+.classIfication label{
+    color:#999999;
+}
+.classIfication ul{
+    list-style: none;
+    margin:-15px 0 0 60px;
+}
+/* .classiUl{
+    width:100%;
+} */
+.classiUl li{
+	display:inline-block;
+    height:30px;
+    margin:0 10px;
+}
+.classiUl li a{
+    display: inline-block;
+    width:100%;
+    height:100%;
+    padding:0 8px;
+    line-height: 30px;
+    text-align: center;
+    text-decoration:none;
+}
+ .classiUl li a:hover{
+	text-decoration:underline;
+	color:red;
+} 
+.classIntere{
+	margin-left: 14px;
+    margin-top: 10px;
+
+}
+.classIntere label{
+	 color:#999999;
+}
+.classIntere .classiUl{
+ 
+    margin:-24px 0 0 60px;
+}
+/*课程显示信息*/
+.mainCourse .subjectClass{
+    /*margin-bottom: 50px;*/
+    width:100%;
+    margin:0 auto;
+}
+.mainCourse .subjectClass ul{
+    list-style: none;
+    width:100%;
+}
+.mainCourse .subjectClass li{
+    display: inline-block;
+    margin:10px;
+    width:242px;
+    height:230px;
+    border:1px solid #eee;
+    padding: 10px;
+}
+@-webkit-keyframes shineC {
+    from{ -webkit-box-shadow: 0 0 5px #ccc; }
+    50%{ -webkit-box-shadow: 0 0 10px #eee; }
+    to{ -webkit-box-shadow: 0 0 5px #ccc; }
+
+}
+
+.subjectUl li:last-child{
+    margin-right: 0;
+    margin-top: 15px;
+}
+.subjectClass li img{
+	border-radius:10px;
+    width:100%;
+    height:140px;
+}
+.subjectClass li h3 a{
+    display: inline-block;
+    margin:10px 0;
+    color: #333;
+    font-size:14px;
+}
+.subjectClass li h3 a:hover{
+    text-decoration: underline;
+    text-decoration-color: #1a6cb9;
+    color:rgb(51,122,183);
+}
+
+
+/*我的课程页面没有图片的时候显示的背景*/
+/*  .subjectClass li .subjectUl_sImgs{
+	position:relative;
+} 
+.subjectClass li .subjectUl_sImgs>img{
+    background:#fbfaf7;
+    border:none;
+}
+.subjectClass li .subjectUl_sImgs>i{
+	    position: absolute;
+	    top: 0;
+	    left: 40%;
+	    font-size: 22px; 
+	    color: #999;
+}  */
+.subjectClass li .subjectUl_sImg>i{
+	display: inline-block;
+    background: rgba(245,245,245,0.81);
+    height: 140px;
+    width: 100%;
+    font-size: 20px;
+    color: rgba(130,92,88,0.9);
+    text-align: center;
+    border: 1px solid #ccc;
+    padding-top:45px;
+}
+
+/*结束*/
+
+.subjectUl li p{
+	margin-top:30px;
+}
+.subjectUl .pay a{
+    float:left;
+    font-size:18px;
+    color: red;
+}
+.subjectUl .pay span>a{
+	float:right;
+	font-size:12px;
+}
+.subjectUl .pay .left_span2{
+	color:#999;
+	margin-left:-30px;
+
+}
+.subjectUl .pay #img{
+	margin-top:20px;
+	margin-left:15px;
+	width:15px;
+	height:15px;
+}
+.subjectUl .pay #img img{
+	width:100%;
+	height:100%;
+} 
+.subjectUl .pay span a{
+    float:right;
+    color: #999;
+    font-size:12px;
+} 
+
+/*分页效果显示*/
+/*.page{*/
+    /*margin-top:40px;*/
+/*}*/
+.page p{
+    text-align: center;
+}
+.page p a{
+    display: inline-block;
+    width:35px;
+    height:35px;
+    line-height:35px;
+    color: #999;
+    /*background: rgb(204,0,0);*/
+    border: 1px solid #cccccc;
+    margin:0 5px;
+    text-align: center;
+    font-size: 16px;
+}
+
+/*页脚信息显示样式*/
+.footer{
+    background: rgb(244,244,244) ;
+    font-size: 16px;
+    height:270px;
+    margin-top:70px;
+    padding-top: 30px;
+    position: relative;
+    bottom: 40px;
+    left: 0;
+    right: 0;
+}
+.footerUl{
+    overflow: hidden;
+    margin:auto;
+}
+.footerPhone{
+	margin-left:75px;
+}
+.footerWork{
+	margin-left:120px;
+}
+.footerCode{
+    margin-left: 200px;
+    margin-top:10px;
+}
+.footerCode1{
+	margin-left:-70px;
+	margin-top:10px;
+}
+.footerCode>p{
+	margin-left: 30px;
+}
+.footerCode1>p{
+	margin-left: 25px;
+}
+.footerCode1>img{
+	width:121;
+	height:116px;
+}
+.footerWork h3,.footerPhone h3{
+    font-weight: bold;
+    margin:5px 0;
+}
+.footerWork li{
+    height: 35px;
+	line-height: 35px;
+}
+.footerWork li a{
+	color: #333333;
+    text-decoration: none;
+    
+}
+.footerPhone li{
+    color: #333333;
+    text-decoration: none;
+    display: inline-block;
+    height:30px;
+    line-height:30px;
+}
+.footerPhone li{
+    height:35px;
+    line-height: 35px;
+}
+@-webkit-keyframes backg {
+    from{ -webkit-box-shadow: 0 0 5px #1a6cb9; }
+    50%{ -webkit-box-shadow: 0 0 10px #eee; }
+    to{ -webkit-box-shadow: 0 0 5px #1a6cb9; }
+}
+.footer .footerUl ul>li{
+    float: left;
+    display: inline-block;
+    width:250px;
+}
+
+.footerUl ul>li>p{
+    margin-bottom: 20px;
+}
+.footerP{
+    font-size: 14px;
+}
+.footerP label{
+    font-weight: bold;
+    margin:10px;
+}
+.footerP a{
+    display: inline-block;
+    margin-right: 20px;
+    color: #333;
+}
+.copy{
+    background: rgb(210,210,210);
+    text-align: center;
+    height: 40px;
+    line-height:40px;
+    z-index:333;
+    position:fixed;
+    bottom:0;
+    /* position: relative;
+    bottom: 0;
+    left:0;
+    right:0; */
+    width: 100%;
+}
+.footerP a:hover,.comHr a:hover,.share p a:hover{
+    text-decoration: underline;
+    text-decoration-color: #1a6cb9;
+}
+/*课程目录*/
+.comHr{
+    margin:30px 0 15px 0;
+    padding-bottom: 15px;
+    border-bottom:1px solid #cccccc;
+}
+.comHr a{
+    color: #1a6cb9;
+    margin:10px;
+}
+/*分享缩进*/
+.main{
+    margin-top: 30px;
+}
+
+.share{ float: left; }
+.shareKj{
+    float: left;
+    border:1px solid#cccccc;
+}
+.share h3{
+    padding-left: 10px;
+}
+.shareKj h3,.shareKj p{
+    height: 35px;
+    line-height: 35px;
+    background: #EEEEEE;
+}
+.share p{
+    padding-right: 10px;
+}
+.share p button{
+    background: rgb(71,150,239);
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    width:25px;
+    height:25px;
+    line-height:25px;
+    text-align: center;
+    color: #FFFFFF;
+    margin: 5px 10px 0 100px ;
+}
+.share p a{
+    color: #333333;
+}
+.shareKj ul{
+    list-style: none;
+    padding: 10px;
+}
+.shareKj li{
+    height: 30px;
+    line-height: 30px;
+}
+.shareKj li>a{
+    color: #333333;
+    margin:0 10px;
+}
+.share .but{
+    background: rgb(132,192,242);
+    -webkit-animation: shineC 3s linear infinite;
+       -moz-animation: shineC 3s linear infinite;
+            animation: shineC 3s linear infinite;
+    width:30px;
+    height:90px;
+    border:1px solid #ccc;
+    color: #fff;
+    border-radius:0 5px 5px 0;
+    text-align: center;
+    margin-top:50px;
+}
+/*视频播放器*/
+.audio{  width:100%;float: left;;display: flex; position: relative;}
+.audio video{
+    width: 94%;
+}
+.audioRight{
+    float:right;
+    display: flex;
+    font-size: 14px;
+    text-align: center;
+    height:99.5%;
+    background: rgb(83,83,83);
+    color: #fff;
+    z-index:1;
+    margin-top: 3px;
+    position: absolute;
+    right: 14px;
+}
+.audioSection{
+    width:58px;
+}
+.audioSection ul>li{
+    display: inline-block;
+    width:100%;
+    height:50px;
+    text-align: center;
+    margin-bottom: 10px;
+    padding-top: 5px;
+}
+.audioSection ul>li:hover{
+    background: rgb(0,0,0);
+}
+.audioSection ul>li i{
+    margin-bottom: -10px;
+}
+.offSide{
+    height:100%;
+    float: right;
+    width:300px;
+    background: #333333;
+}
+.offSide ul,.audioSection ul{
+    list-style: none;
+    margin-top: 15px;
+
+}
+.offSide ul>li a{
+    color: #FFFFFF;
+    display: inline-block;
+    margin:10px 0;
+}
+
+/*课程切换显示*/
+.list{ display: flex; width:100%;position: relative; }
+.listLeft ul,.listRight ul{
+    list-style: none;
+}
+.listLeft{
+    border:1px solid #cccccc;
+    width:72%;
+    margin-right:2%;
+    margin-top:35px;
+}
+.listRight{
+    position: absolute;
+    right:0;
+    width:26%;
+    padding:20px;
+}
+.listRight div{
+    border:1px solid #cccccc;
+    margin:15px 0;
+    padding: 15px;
+}
+.listRight h4{
+    /*margin: 0 20px 15px 20px;*/
+    border-bottom: 2px solid #cccccc;
+    padding-bottom: 15px;
+    text-indent: 30px;
+}
+.listRight ul>li{
+    margin:10px 0;
+    color: #333333;
+}
+.listRight ul>li i,.listRight div p{
+    color: #999;
+}
+.listRight ul>li span{
+    color: red;
+    font-weight: bolder;
+}
+.listRight  img,.switch1peo img{
+    display: inline-block;
+    width:40px;
+    height:40px;
+    /*background:url("../images/class.png")left center no-repeat;*/
+    border-radius: 40px;
+    margin:0 15px 15px 0;
+}
+.listLeft .listUl li{
+     float: left;
+    display:inline-block;
+    width:145px;
+    height:50px;
+    line-height: 50px;
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+.listUl{ width:100%; margin-left: 20px;  height:80px;}
+.listUl a{
+    color: #333;
+}
+.switch{
+    /*float: left;*/
+    margin: 20px;
+}
+.switch h4{
+    /*margin-right: 46%;*/
+    font-weight: bold;
+}
+.switch h4{ border-left:4px solid red; padding-left: 15px; }
+.switch>p{
+    font-size: 12px;
+    margin: 15px 0;
+    padding-bottom: 15px;
+    line-height: 25px;
+    border-bottom: 1px solid #cccccc;
+}
+.listCourse{
+    margin-left: 80px;
+}
+.listCourse>li{
+    display: inline-block;
+    height:40px;
+    line-height: 40px;
+    width:100%;
+    padding-right: 10px;
+    color: #999;
+}
+.listCourse>li>label{
+    font-weight: 100;
+}
+.listCourse>li>span{
+    color: #333333;
+    font-size: 14px;
+    font-weight: 100;
+    margin-right: 10px;
+}
+.listCourse>li>label>span{
+    color: red;
+}
+.listCourse>li:hover{
+    background:rgb(231,244,255);
+}
+.listCourse>li .span{
+    float: right;
+    color: #999999;
+}
+.listCourse>li .span i{
+    font-size: 10px;
+    display: inline-block;
+    width:20px;
+    height: 20px;
+    border:1px solid #cccccc;
+    border-radius: 20px;
+    text-align: center;
+    line-height: 20px;
+    margin-left: 10px;
+}
+.switch .switchFooter{
+    background: rgb(238,238,238);
+    color: #999988;
+    padding: 50px;
+    font-size: 18px;
+    height: 150px;
+}
+.switch1peo{
+    margin-left: 30px;
+}
+.switch1peo p:last-child{
+    color: #999988;
+    font-weight: 100;
+    margin:-10px 0 0 50px;
+}
+.switchFooter p:last-child{
+    float: right;
+    margin-right: 20%;
+}
+.switchFooter a{
+    color: red;
+}
+.switchFooter a:hover{
+    text-decoration-line: underline;
+    text-decoration-color:red ;
+}
+/*@media screen and (max-width: 1100px) {
+    .comWidth{width:100%;margin:auto;}
+    .audioRight {height:100%;}
+}*/
+
+/*首页*/
+
+/*轮播图样式*/
+.box {
+    width:100%;
+    position:relative;
+
+}
+.hh{
+	top:0;
+	left:0;
+	right:0;
+}
+/*轮播图样式完毕*/
+#myFocus{ width:100%; height:600px;}
+.pic img{
+	width:100%;
+	height:100%;
+}
+/*最新资讯*/
+.news{
+    background: #EEEEEE;
+    border-bottom: 1px solid #cccccc;
+    height:35px;
+    line-height: 35px;
+    margin-bottom: 40px;
+    padding:0 20px;
+}
+.news a{
+    color: #1D8FDB;
+    margin:0 15px;
+}
+.news marquee{
+    margin: -34px 0 0 65px;
+}
+.mainBody .navH2{
+    height: 40px;
+    border-bottom: 1px solid #cccccc;
+    margin-bottom: 25px;
+}
+.mainBody .navH2 h4{
+    border-left: 4px solid #1a6cb9;
+    height:25px;
+    line-height: 25px;
+    padding-left: 10px;
+    font-weight:500;
+}
+/*选择头像*/
+.modal-body img{
+    width:60px;
+    height:60px;
+    border:1px solid #cccccc;
+    margin:3px;
+}
+
+/*signIn页面css样式*/
+
+/*学生信息图标显示*/
+.logoRight p{
+    margin-top: 10px;
+}
+.logoRight p img{
+    width:40px;
+    height:40px;
+    border-radius: 40px;
+    background: transparent;
+}
+.mainInfo{
+    width:100%;
+    margin: 20px 0;
+    padding: 50px;
+}
+.mainLeft{
+    float: left;
+    width:260px;
+    padding:0 25px 15px 0;
+    border-right:2px solid rgb(240,240,240);
+}
+.mainLeft h3{
+    background:rgb(238,238,238);
+    height:50px;
+    line-height:50px;
+    padding-left:20px;
+}
+.mainLeft p{
+    font-weight: 100;
+    padding-left: 40px;
+    height:50px;
+    line-height: 50px;
+    border-bottom: 1px solid rgb(240,240,240);
+}
+.mainLeft p:hover{
+    color:#1D8FDB;
+}
+.mainRight{
+    float: left;
+    padding:15px 10px;
+}
+/*主页index的主体部分*/
+.mainBody .subjectUl>li>h5{
+    font-weight:500;
+    color:#333333;
+}
+.mainBody .subjectUl>li .pay{
+    font-size:12px;
+    height:35px;
+    line-height: 35px;
+}
+.mainBody .subjectUl>li .pay>a{
+    font-size:16px;
+}
+.mainBody .subjectClass li{
+    display: inline-block;
+    margin: 15px;
+    width: 254px;
+    height: 240px;
+    border:1px solid #eee;
+    padding: 10px;
+}
+@-webkit-keyframes shineC {
+    from{ -webkit-box-shadow: 0 0 5px #ccc; }
+    50%{ -webkit-box-shadow: 0 0 10px #eee; }
+    to{ -webkit-box-shadow: 0 0 5px #ccc; }
+
+}
+
+/* top里面的搜索框 */
+.top_search{
+	position:absolute;
+	right:50px;
+	top:-10px;
+}
+.top_search input{
+	border:1px solid #ccc;
+}
+.top_search button{
+	margin:-15px 0 0 10px;
+}
+
+.left_span{
+	padding-left: 23%;
+}
+.left_span2{
+	padding-left: 130px;
+}
+
+.nb{
+	width: 30px;
+    height:30px;
+    margin-left:92%;
+    margin-top:-80px;
+}
+.modal_btn button{
+	color:red;
+}
+
+.pstyle{
+	background-color: #4d4c4c33;
+	position: relative;
+	padding: 20px 30px;
+	margin-top: 50px;
+	font-size: 20px;
+	padding-left: 270px;
+}
+
+.pstyle2{
+	background-color: #4d4c4c33;
+	position: relative;
+	padding: 20px 30px;
+	margin-top: 70px;
+	font-size: 20px;
+	padding-left: 270px;
+}
+.carousel-inner .item img{
+	height:100%;
+}
+
+#loading  
+{  
+    position:fixed;  
+    top:40%;  
+    left:45%;  
+    z-index:999;  
+}
+.formSred input{
+	border:1px solid #ccc;
+}

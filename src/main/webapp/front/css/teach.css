@@ -1,0 +1,344 @@
+.mainbd{
+	text-align: center;
+	font-size: 22px;
+	font-weight: 600;
+	margin: 0 20%;
+	padding:20px 0;
+}
+.mainbd a{
+	color:#8C8C8C;
+}
+.active{
+	color:#000000
+}
+.mainnr{
+	width:78% ;
+	min-height:640px;
+	margin-left: 12%;
+	margin-top: 20px;
+}
+.form_info{
+	display:block;
+}
+.form-control{
+	width: 300px;
+}
+.info2{
+	display: none;
+}
+#main1{
+	margin-left:300px ;
+}
+.basicInfo{
+	font-size: 16px;
+	font-weight: 600;
+	margin:20px 0;
+}
+.footer{
+	margin-top: 30px;
+}
+.logoLeft a{
+	display:inline-block;
+	width:95px;
+}
+
+/*ï¿½ï¿½ï¿½ï¿½Í¨Öª*/
+#main6 textarea{
+	width:80%;
+	height:180px;
+    padding: 10px 15px;
+    margin:20px 0;
+}
+.main6_in{
+	margin:20px 0;
+}
+.main6_in span{
+	margin: 10px;
+}
+.main6_in span input{
+	margin-left: 10px;
+}
+.main6_time ul{ list-style: none; }
+.main6_time ul li{
+	display: inline-block;
+	margin:0 5px;
+}
+.main6_time ul li input{
+	width:50px;
+    height:25px;
+    font-weight: bolder;
+    font-size: 14px;
+    line-height: 25px;
+    text-align: center;
+}
+.main6_time ul li select{
+	display: inline-block;
+	width:50px;
+	height: 25px;
+	line-height: 25px;
+	text-align: center;
+}
+.main6_time ul li strong{
+	font-weight: bold;
+	margin: -20px 10px 0 10px;
+}
+
+
+/*ï¿½Òµï¿½ï¿½ï¿½Òµ*/
+
+.addMain{
+    height: 50px;
+    line-height: 50px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+.addMain_left button{
+    width: 50px;
+    height: 34px;
+    font-size: 16px;
+    margin-top: 8px;
+}
+.addMain_left button a:hover{ text-decoration: none; }
+.addMain_right input{
+    display: inline-block;
+    width: 200px;  
+    margin-right: 15px;
+    border: 1px solid #cccccc;
+}
+.addMain_table tr{
+    font-size: 14px;
+    height:35px;
+    line-height: 35px;
+}
+.addMain_table td,.addMain_table th{
+    text-align: center;
+}
+.addMain_table button{
+    width: 80px;
+    height: 30px;
+    margin-right: 10px;
+}
+.addMain_page a{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    font-weight: bolder;
+    text-align: center;
+    background:lightcoral;
+    color: #FFFFFF;
+    margin-left: 10px;
+    margin-bottom:30px;
+}
+.addMain_page a:hover{
+    text-decoration: none;
+    color: #FFFFFF;
+}
+.nav > li > a{
+	padding: 15x 29px;
+}
+/*Ò³ï¿½ï¿½*/
+body{
+	position:relative;
+}
+.teach_copy{
+	position:absolute;
+	bottom:10px;
+	width:100%;
+	left:0px;
+	
+}
+
+.toallypage {
+	width: 30%;
+	margin-left: 2px;
+	margin-top: 2px;
+	display: inline-block;
+}
+
+.toallymain {
+	text-align: left;
+}
+
+.toallypage img {
+	width: 90%;
+	height: 170px;
+}
+
+.toallypage h3,.pay {
+	text-align: center;
+	font-size: 18px;
+}
+.mainInfo{
+	min-height:650px;
+	max-height:auto;
+}
+.toallypage h3 {
+	font-size: 30px;
+}
+
+.correntInfo{
+	position:relative;
+	padding-bottom:30px;
+}
+.correntInfo p{
+	position:absolute;
+	bottom:20px;
+	left:20px;
+}
+#myHaveQuestion,#aboutHaveQuestion{
+	width:77%;
+	margin-left:-50px;
+	margin-top:-40px;
+	background:border-box;
+}
+#myHaveQuestion ul,#aboutHaveQuestion ul{ list-style:none; }
+#myHaveQuestion ul{
+	margin-top: 4%;
+}
+#aboutHaveQuestion li,#myHaveQuestion li{
+	border-bottom:1px solid #eee;
+	margin-top:25px;
+}
+#aboutHaveQuestion ul{
+	margin-top: 55px;
+    padding-left: 8%
+}
+.proDet h4{
+	font-weight:bold;
+}
+.proDet h6{
+	margin:15px 0;
+	font-size:14px;
+	color:#999;
+}
+.proDet p{
+	overflow:hidden;
+}
+.proDet .release{
+	float:left;
+	color:#ccc;
+}
+.proDet .aSpan{
+	float:right;
+	margin-right:10%;
+}
+.proDet .aSpan a{
+	margin-left:15px;
+}
+#zb_page_info_area,#page_nav_area{
+	font-size:14px;
+}
+#zb_page_info_area{
+	color:tomato;
+}
+#zb_page_nav_area{
+	/* margin-left: 50%; */
+    margin-top: -40px;
+}
+#zb_page_info_area2,#page_nav_area2{
+	font-size:14px;
+}
+#zb_page_info_area2{
+	color:tomato;
+}
+#zb_page_nav_area2{
+	margin-left: 50%;
+    margin-top: -40px;
+}
+.addMain_page .addPage{
+	width:35%;
+}
+.addMain_page .addPage button{
+	width: 65px;
+	margin: 0 5px;
+	background: rgb(240,128,128);
+	color: #fff;
+	height: 30px;
+	line-height: 30px;
+	display: inline-block;
+	text-align: center;
+	border:none;
+}
+.addMain_page .addPage a{
+	margin:0 5px;
+}
+/* æˆ‘çš„è¯¾ç¨‹æ ·å¼ */
+#showCourse ul{
+	list-style:none;
+	margin-bottom:60px;
+}
+#showCourse ul li{
+    display:inline-block;
+    width:290px;
+    height:200px;
+    margin: 23px 21px;
+    position:relative;
+}
+#showCourse ul li img{
+	width:100%;
+	height:100%;
+	position: absolute;
+	z-index: 1;
+}
+/*Ã»ÓÐÍ¼Æ¬ ÏÔÊ¾ µÄÊ±ºòµÄ±³¾°  ÔÚ´Ë showCourse idÏÂ*/
+ #showCourse ul li .showCourse_sImg>span{
+	display: inline-block;
+    background: rgba(245,245,245,1);
+    height:200px;
+    width: 100%;
+    line-height: 200px;
+    font-size: 20px;
+    color: rgba(130,92,88,0.9);
+    text-align: center;
+    border: 1px solid #ccc;
+	
+} 
+/*½áÊø*/
+#showCourse ul li .aH{
+	position:absolute;
+	bottom:-40px;
+	left:10px;
+}
+#showCourse ul li span{
+    position: absolute;
+    z-index: 2;
+    border:100px solid rgba(17,49,160,0.5);
+    width:100%;
+    height:165px;
+}
+#showCourse ul li p{
+    position: absolute;
+    z-index: 3;
+    margin-top:80px;
+    padding:0 15px;
+}
+#showCourse ul li p>button{
+    margin-right:0px;
+}
+#showCourse ul li p .bbb{
+    margin:0 35px;
+}
+#showCourse ul li p .ccc{
+    margin:0 0px;
+}
+
+#questionModalText .timeSpan{
+	color:#9999;
+	margin-left:20px;
+}
+.sBitian{
+	color: red;
+	position: absolute;
+	top: 5px;
+	left: 112%;
+	display: inline-block;
+	width: 30px;	
+}
+#main3{
+	margin-left:140px;
+}
+#exampleTableEventsToolbar>button{
+	margin-left:20px;
+}

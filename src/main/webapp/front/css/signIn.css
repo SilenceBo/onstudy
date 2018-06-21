@@ -1,0 +1,414 @@
+.basicInfo>p {
+	font-size: 22px;
+	color: #000000;
+	margin-left: 150px;
+	margin-top:-50px;
+}
+
+li {
+	list-style-type: none;
+	margin-bottom: 20px;
+	/*text-align: center;*/
+	line-height: 30px;
+}
+
+.label {
+	font-size: 15px;
+	color: #000000;
+}
+
+.blue-btn,.red-btn {
+	margin-left: 100px;
+}
+/*鍩烘湰淇℃伅鐨勬樉绀恒�闅愯棌*/
+.info1 {
+	margin-left: 150px;
+	margin-top: 60px;
+	/*display: none;*/
+}
+/*淇敼瀵嗙爜鐨勬樉绀恒�闅愯棌*/
+.info2 {
+	margin-left: 150px;
+	margin-top: 60px;
+	display: none;
+}
+
+.oon { /*font-size: 40px;*/
+	color: #888;
+	/* text-align: center; */
+	/*margin-top: 200px;*/
+	margin-left: 280px;
+	display: block;
+}
+
+#tast,#focus,#blog {
+	margin-top: 100px;
+	margin-left: 220px;
+	font-size: 40px;
+	color: #000000;
+}
+#course,{
+	margin-left: 220px;
+	font-size: 40px;
+	color: #000000;
+}
+
+/*学生页面，课程信息无图片的时候显示同色背景*/
+#course .course_sImg>span{
+	display: inline-block;
+    background: rgba(245,245,245,1);
+    height:255px;
+    width: 100%;
+    line-height: 255px;
+    font-size: 20px;
+    color: rgba(130,92,88,0.9);
+    text-align: center;
+    border: 1px solid #ccc;
+}
+/*结束*/
+
+/*top 顶部样式*/
+.top {
+	width: 100%;
+	height: 75px;
+	background: rgb(240, 240, 240);
+	font-size: 16px;
+}
+.passed{
+	color:#aaa;
+}
+.passed a{
+	color:#aaa;
+}
+.totally{
+	min-width:960px;
+	max-height:1100px;
+	display: none;
+}
+.logoLeft {
+	float: left;
+	height: 70px;
+	position: relative;
+}
+
+.logoLeft span {
+	float: right;
+}
+
+.logoLeft a img {
+	width: 65px;
+	height: 65px;
+	position: absolute;
+	left: 5px;
+	top: 5px;
+}
+
+.logoLeft a,.logoRight a {
+	color: #333;
+	text-decoration: none;
+	display: inline-block;
+	width: 95px;
+	line-height: 70px;
+	text-align: center;
+}
+
+.logoLeft a:hover {
+	background: rgb(228, 228, 228);
+	text-decoration: underline;
+}
+
+.logoRight {
+	float: right;
+	margin-right: 30px;
+	margin-top: 0px;
+}
+
+.logoRight span {
+	margin: 0 -15px;
+}
+
+.logoRight a:hover {
+	text-decoration: underline;
+}
+
+.toallypage {
+	width: 242px;
+	height:220px;
+	display: inline-block;
+	margin: 20px;
+	padding:10px;
+	border:1px solid #eee;
+}
+.toallypage h5{
+	margin-top:20px;
+}
+.toallypage h4>a{
+	font-size:15px;
+}
+.toallymain {
+	text-align: left;
+}
+
+.toallypage img {
+	width: 100%;
+	height: 140px;
+	border-radius:10px;
+}
+
+.toallypage h3,.pay {
+	text-align: center;
+	font-size: 18px;
+}
+.mainInfo{
+	min-height:650px;
+	max-height:auto;
+}
+.toallypage h3 {
+	font-size: 30px;
+}
+#information{margin-top: 60px;}
+.tast_title{
+	font-size:16px;
+	text-align:center;
+}
+#tast_main {
+	font-size: 12px;
+	float: left;
+	width: 250px;
+	margin-left:30px;
+}
+.table_work{
+	padding-right:50px;
+}
+ .seachers{
+	margin-left:80%;
+	line-height:35px;
+	
+}
+.download {
+	font-size: 15px;
+	float: right;
+	
+	/* width:30px; */
+	padding-left:56px;
+	padding-right:70px;
+	float:left;
+	  margin-bottom:20px; 
+}
+.table_box{
+	width:380px;
+	margin-right:50px;
+}
+
+.tast_submit {
+	font-size: 14px;
+	display: inline-block;
+	bottom:28px;
+}
+
+.tast_submit input { /*border-radius: 5px;*/
+	
+}
+
+.file {
+	margin-left: 30px;
+}
+
+.submit {
+	margin-left: 30px;
+	/*background-color:#1D8FDB;*/
+}
+
+.static {
+	margin-left: 70px;
+}
+
+.static li {
+	display: inline;
+	font-size: 15px;
+}
+
+.disabled {
+	color: #ccc;
+}
+
+.active {
+	color: #DA0A0A;
+	margin-bottom:10px;
+	text-align:center;
+	bottom:0px;
+}
+#myQuestion{
+	width:69%;
+	margin-left:-50px;
+	margin-top:-40px;
+	background:border-box;
+}
+#myQuestion li{
+	border-bottom:1px solid #eee;
+	margin:25px 0;
+}
+#myQuestion li h4{
+	font-weight:bold;
+	
+}
+#myQuestion li h6{
+	margin:15px 0;
+	font-size:14px;
+	color:#999;
+}
+#myQuestion li p{
+	overflow:hidden;
+}
+#myQuestion li .release{
+	float:left;
+	color:#ccc;
+}
+#myQuestion li .aSpan{
+	float:right;
+	margin-right:10%;
+}
+#page_info_area,#page_nav_area{
+	font-size:14px;
+}
+#page_info_area{
+	color:tomato;
+}
+#page_nav_area{
+	margin-left: 37%;
+    margin-top: -40px;
+}
+
+
+#aboutQuestion{
+	width:100%;
+	margin-left:-50px;
+	margin-top:0px;
+	background:border-box;
+}
+#aboutQuestion li{
+	border-bottom:1px solid #eee;
+	margin:25px 0;
+}
+#aboutQuestion li h4{
+	font-weight:bold;
+	
+}
+#aboutQuestion li h6{
+	margin:15px 0;
+	font-size:14px;
+	color:#999;
+}
+#aboutQuestion li p{
+	overflow:hidden;
+}
+#aboutQuestion li .release{
+	float:left;
+	color:#ccc;
+}
+#aboutQuestion li .aSpan{
+	float:right;
+	margin-right:10%;
+}
+#page_info_area2,#page_nav_area2{
+	font-size:14px;
+}
+#page_info_area2{
+	color:tomato;
+}
+#page_nav_area2{
+	margin-left: 50%;
+    margin-top: -40px;
+}
+.tst_total{
+	width: 840px;
+	border: dashed 1px chartreuse;
+}
+.tst_one{
+	/* height: 300px; */
+	width: 250px;
+	padding: 15px;
+	float: left;
+}
+h5{
+	color:black;
+	text-overflow:ellipsis; 
+ 	overflow:hidden;
+ 	white-space: nowrap; 
+}
+.tst_one p{
+	height: 150px;
+	overflow-y :auto;
+}
+.tst_file{
+	text-align: center;
+	font-size: 16px;
+	font-weight: 600;
+	color: #000;
+	margin-top: 50px;
+}
+		
+.report-file {
+   display: block;
+   position: relative;
+   width: 168px;
+   height: 28px;
+   overflow: hidden;
+   border: 1px solid #428bca;
+   background: none repeat scroll 0 0 #428bca;
+   color: #fff;
+   cursor: pointer;
+   text-align: center;
+   float: left;
+   margin-right:5px;
+}
+#file1{
+	font-size:11px;
+}
+.report-file span {
+   cursor: pointer;
+   display: block;
+   line-height: 28px;
+}        
+.file-prew {
+   cursor: pointer;
+   position: absolute;
+   top: 0;
+   left:0;
+   width: 120px;
+   height: 30px;
+   font-size: 100px; 
+   opacity: 0; 
+   filter: alpha(opacity=0);
+}
+h3{text-align: center;}
+.clearfix:after{ content: ""; display:block; clear:both; }
+.clearfix{ zoom:1; }
+#inform th,#answersTable th{
+	text-align:center;
+}
+#answersTable tr，#inform,tr{
+	height:50px;
+	text-align:center;
+}
+#answersTable td>button{
+	margin:0 8px;
+}
+/*左侧导航条动态class*/
+.left_sOn{
+	color:#1D8FDB;
+}
+
+/*我的作业,没有图片的时候显示*/
+#work .course_sImg span{
+	display: inline-block;
+    background: rgba(245,245,245,1);
+    height:255px;
+    width: 100%;
+    padding-top:85px;
+    font-size: 20px;
+    color: rgba(130,92,88,0.9);
+    text-align: center;
+    border: 1px solid #ccc;
+}
+/*结束*/

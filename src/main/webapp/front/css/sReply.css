@@ -1,0 +1,58 @@
+.hide{
+	display:none;
+}
+.show{
+	display:block;
+}
+.sReply_p{ 
+	line-height: 1.5;
+    color:red;
+    margin-top: -5px;
+    text-indent: 10px;
+}
+.sReply_p>a{
+	margin-left: 15px;
+}
+.sReply_que>p a{
+	margin-right: 5px;
+}
+.sReply_que>p span{
+    margin-left: 5px;
+}
+.sReply_a{
+	overflow: hidden;
+}
+.sReply_a span{
+	margin-right: 40%;
+}
+.sReply-ul{
+	list-style:none;
+}
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+.sRuanjian{
+	margin:0 50px 0 0;
+}
+.radio1_pp ul{
+	list-style:none;
+}
+.radio1_pp ul li{
+	background:#eaefef;
+	margin:10px 0;
+	cursor:pointer;
+}
+.radio1_pp ul li span{
+	font-size:16px;
+	color:#333;
+}
+.radio1_pp ul li div{
+	color:#999;
+	text-indent:25px;
+	line-height:1.5;
+	letter-spacing:2px;
+}
+
