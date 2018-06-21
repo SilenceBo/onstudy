@@ -1,0 +1,10 @@
+@CHARSET "UTF-8";
+.example table{
+	table-layout:fixed;
+	word-wrap:break-word;
+}
+.example table .sRedesc{
+	text-overflow: ellipsis; /* 规定段落中的文本不进行换行 */
+	white-space: nowrap; 	/* 关闭滚动条 */
+	overflow: hidden;		/* 溢出的文字显示为省略号 */
+}
