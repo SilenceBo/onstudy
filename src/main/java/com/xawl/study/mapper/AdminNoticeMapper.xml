@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xawl.study.dao.AdminNoticeMapper" >
+  <resultMap id="BaseResultMap" type="com.xawl.study.model.AdminNotice" >
+    <id column="anid" property="anid" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="text" property="text" jdbcType="VARCHAR" />
+    <result column="notiveType" property="notivetype" jdbcType="INTEGER" />
+    <result column="isItTimed" property="isittimed" jdbcType="BIT" />
+    <result column="time" property="time" jdbcType="VARCHAR" />
+    <result column="isSendOut" property="issendout" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    anid, title, text, notiveType, isItTimed, time, isSendOut
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.xawl.study.model.AdminNoticeExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from admin_notice
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from admin_notice
+    where anid = #{anid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from admin_notice
+    where anid = #{anid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.xawl.study.model.AdminNoticeExample" >
+    delete from admin_notice
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.xawl.study.model.AdminNotice" >
+    insert into admin_notice (anid, title, text, 
+      notiveType, isItTimed, time, 
+      isSendOut)
+    values (#{anid,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{text,jdbcType=VARCHAR}, 
+      #{notivetype,jdbcType=INTEGER}, #{isittimed,jdbcType=BIT}, #{time,jdbcType=VARCHAR}, 
+      #{issendout,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xawl.study.model.AdminNotice" >
+    insert into admin_notice
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="anid != null" >
+        anid,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="text != null" >
+        text,
+      </if>
+      <if test="notivetype != null" >
+        notiveType,
+      </if>
+      <if test="isittimed != null" >
+        isItTimed,
+      </if>
+      <if test="time != null" >
+        time,
+      </if>
+      <if test="issendout != null" >
+        isSendOut,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="anid != null" >
+        #{anid,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="text != null" >
+        #{text,jdbcType=VARCHAR},
+      </if>
+      <if test="notivetype != null" >
+        #{notivetype,jdbcType=INTEGER},
+      </if>
+      <if test="isittimed != null" >
+        #{isittimed,jdbcType=BIT},
+      </if>
+      <if test="time != null" >
+        #{time,jdbcType=VARCHAR},
+      </if>
+      <if test="issendout != null" >
+        #{issendout,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.xawl.study.model.AdminNoticeExample" resultType="java.lang.Integer" >
+    select count(*) from admin_notice
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update admin_notice
+    <set >
+      <if test="record.anid != null" >
+        anid = #{record.anid,jdbcType=INTEGER},
+      </if>
+      <if test="record.title != null" >
+        title = #{record.title,jdbcType=VARCHAR},
+      </if>
+      <if test="record.text != null" >
+        text = #{record.text,jdbcType=VARCHAR},
+      </if>
+      <if test="record.notivetype != null" >
+        notiveType = #{record.notivetype,jdbcType=INTEGER},
+      </if>
+      <if test="record.isittimed != null" >
+        isItTimed = #{record.isittimed,jdbcType=BIT},
+      </if>
+      <if test="record.time != null" >
+        time = #{record.time,jdbcType=VARCHAR},
+      </if>
+      <if test="record.issendout != null" >
+        isSendOut = #{record.issendout,jdbcType=BIT},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update admin_notice
+    set anid = #{record.anid,jdbcType=INTEGER},
+      title = #{record.title,jdbcType=VARCHAR},
+      text = #{record.text,jdbcType=VARCHAR},
+      notiveType = #{record.notivetype,jdbcType=INTEGER},
+      isItTimed = #{record.isittimed,jdbcType=BIT},
+      time = #{record.time,jdbcType=VARCHAR},
+      isSendOut = #{record.issendout,jdbcType=BIT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xawl.study.model.AdminNotice" >
+    update admin_notice
+    <set >
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="text != null" >
+        text = #{text,jdbcType=VARCHAR},
+      </if>
+      <if test="notivetype != null" >
+        notiveType = #{notivetype,jdbcType=INTEGER},
+      </if>
+      <if test="isittimed != null" >
+        isItTimed = #{isittimed,jdbcType=BIT},
+      </if>
+      <if test="time != null" >
+        time = #{time,jdbcType=VARCHAR},
+      </if>
+      <if test="issendout != null" >
+        isSendOut = #{issendout,jdbcType=BIT},
+      </if>
+    </set>
+    where anid = #{anid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xawl.study.model.AdminNotice" >
+    update admin_notice
+    set title = #{title,jdbcType=VARCHAR},
+      text = #{text,jdbcType=VARCHAR},
+      notiveType = #{notivetype,jdbcType=INTEGER},
+      isItTimed = #{isittimed,jdbcType=BIT},
+      time = #{time,jdbcType=VARCHAR},
+      isSendOut = #{issendout,jdbcType=BIT}
+    where anid = #{anid,jdbcType=INTEGER}
+  </update>
+</mapper>

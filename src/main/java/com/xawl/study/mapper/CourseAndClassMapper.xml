@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xawl.study.dao.CourseAndClassMapper" >
+	<!-- zb -->
+	<select id="findByCourseId" parameterType="java.lang.Integer" resultType="com.xawl.study.model.CourseAndClassCustomer">
+		SELECT * FROM course_class WHERE courseId=#{value}
+	</select>
+	
+	<select id="selectByCourseAndClass" parameterType="com.xawl.study.model.CourseAndClass" resultType="com.xawl.study.model.CourseAndClass">
+		SELECT * FROM course_class WHERE courseId=#{courseId} AND classId=#{classId}
+	</select>
+	
+	<insert id="insertCourseAndClasss" parameterType="com.xawl.study.model.CourseAndClass">
+	  	insert into course_class (courseId, classId)
+	    values (#{courseId,jdbcType=INTEGER}, #{classId,jdbcType=INTEGER})
+	</insert>
+	
+	<select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultType="com.xawl.study.model.CourseAndClassCustomer">
+		SELECT * FROM course_class WHERE ccid=#{value}
+	</select>
+	
+	<delete id="deleteCourseAndClasss">	
+		delete from course_class where ccid in
+  		<foreach collection="array" open="(" close=")" separator="," item="ids">
+    		#{ids}
+    	</foreach>  		
+	</delete>
+</mapper>

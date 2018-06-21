@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xawl.study.dao.StudentInformationMapper">
+	<resultMap type="com.xawl.study.model.CourseAndTeacher" id="CourseAndTeacher">
+		<id column="cid" property="cid" jdbcType="INTEGER" />
+		<result column="cname" property="cname" jdbcType="VARCHAR" />
+		<result column="date" property="date" jdbcType="DATE" />
+		<result column="tid" property="tid" jdbcType="INTEGER" />
+		<result column="fid" property="fid" jdbcType="INTEGER" />
+		<result column="redesc" property="redesc" jdbcType="VARCHAR" />
+		<result column="iid" property="iid" jdbcType="INTEGER" />
+		<result column="linkNum" property="linknum" jdbcType="INTEGER" />
+		<result column="iorder" property="iorder" jdbcType="BIT" />
+		<result column="image" property="image" jdbcType="VARCHAR" />
+		<association property="teacher" javaType="com.xawl.study.model.Teacher">
+			<id column="tid" property="tid" jdbcType="INTEGER" />
+			<result column="account" property="account" jdbcType="VARCHAR" />
+			<result column="pwd" property="pwd" jdbcType="VARCHAR" />
+			<result column="username" property="username" jdbcType="VARCHAR" />
+		</association>
+	</resultMap>
+	<select id="selectMyCourseByClassId" parameterType="java.lang.Integer"
+		resultMap="CourseAndTeacher">
+		SELECT * FROM course_class cc,course c,teacher t WHERE
+		cc.classId=#{classId} AND
+		cc.courseId=c.cid AND t.tid=c.tid
+	</select>
+</mapper>

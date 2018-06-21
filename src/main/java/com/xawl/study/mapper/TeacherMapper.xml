@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xawl.study.dao.TeacherMapper">
+	<resultMap id="BaseResultMap" type="com.xawl.study.model.Teacher">
+		<id column="tid" property="tid" jdbcType="INTEGER" />
+		<result column="account" property="account" jdbcType="VARCHAR" />
+		<result column="pwd" property="pwd" jdbcType="VARCHAR" />
+		<result column="username" property="username" jdbcType="VARCHAR" />
+		<result column="redesc" property="redesc" jdbcType="VARCHAR" />
+		<result column="phone" property="phone" jdbcType="VARCHAR" />
+		<result column="email" property="email" jdbcType="VARCHAR" />
+		<result column="qq" property="qq" jdbcType="INTEGER" />
+		<result column="loginNum" property="loginNum" jdbcType="INTEGER" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		tid, account, pwd, username, redesc, phone, email,
+		qq,loginNum
+	</sql>
+	<update id="addloginNum" parameterType="java.lang.Integer">
+		UPDATE teacher SET
+		loginNum=loginNum+1 WHERE tid=#{tid}
+	</update>
+	<!-- 按照教师的tid查询教师 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from teacher
+		where tid = #{tid,jdbcType=INTEGER}
+	</select>
+	<select id="findAll" resultType="com.xawl.study.model.Teacher">
+		SELECT * FROM teacher ORDER BY
+		tid DESC
+	</select>
+	<select id="loginTeacher" parameterType="java.lang.String"
+		resultType="com.xawl.study.model.Teacher">
+		select
+		<include refid="Base_Column_List" />
+		from teacher where account=#{account}
+	</select>
+
+	<!-- 用教师的tid删除教师 -->
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from
+		teacher
+		where tid = #{tid,jdbcType=INTEGER}
+	</delete>
+
+	<!-- 删除多条学生记录 -->
+	<delete id="deleteByIds">
+		delete from teacher where tid in
+		<foreach collection="array" open="(" close=")" separator=","
+			item="ids">
+			#{ids}
+		</foreach>
+	</delete>
+
+	<!--插入教的信息 -->
+	<insert id="insert" parameterType="com.xawl.study.model.Teacher">
+		insert into teacher (tid,
+		account, pwd,
+		username, redesc, phone,
+		email, qq)
+		values
+		(#{tid,jdbcType=INTEGER}, #{account,jdbcType=VARCHAR},
+		#{pwd,jdbcType=VARCHAR},
+		#{username,jdbcType=VARCHAR},
+		#{redesc,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR},
+		#{email,jdbcType=VARCHAR}, #{qq,jdbcType=INTEGER})
+	</insert>
+	<!-- 添加已存在教师信息 -->
+	<insert id="insertSelective" parameterType="com.xawl.study.model.Teacher">
+		insert into teacher
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="tid != null">
+				tid,
+			</if>
+			<if test="account != null">
+				account,
+			</if>
+			<if test="pwd != null">
+				pwd,
+			</if>
+			<if test="username != null">
+				username,
+			</if>
+			<if test="redesc != null">
+				redesc,
+			</if>
+			<if test="phone != null">
+				phone,
+			</if>
+			<if test="email != null">
+				email,
+			</if>
+			<if test="qq != null">
+				qq,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="tid != null">
+				#{tid,jdbcType=INTEGER},
+			</if>
+			<if test="account != null">
+				#{account,jdbcType=VARCHAR},
+			</if>
+			<if test="pwd != null">
+				#{pwd,jdbcType=VARCHAR},
+			</if>
+			<if test="username != null">
+				#{username,jdbcType=VARCHAR},
+			</if>
+			<if test="redesc != null">
+				#{redesc,jdbcType=VARCHAR},
+			</if>
+			<if test="phone != null">
+				#{phone,jdbcType=VARCHAR},
+			</if>
+			<if test="email != null">
+				#{email,jdbcType=VARCHAR},
+			</if>
+			<if test="qq != null">
+				#{qq,jdbcType=INTEGER},
+			</if>
+		</trim>
+	</insert>
+	<!-- 修改已存在教师的信息 -->
+	<update id="updateByPrimaryKeySelective" parameterType="com.xawl.study.model.Teacher">
+		update teacher
+		<set>
+			<if test="account != null">
+				account = #{account,jdbcType=VARCHAR},
+			</if>
+			<if test="pwd != null">
+				pwd = #{pwd,jdbcType=VARCHAR},
+			</if>
+			<if test="username != null">
+				username = #{username,jdbcType=VARCHAR},
+			</if>
+			<if test="redesc != null">
+				redesc = #{redesc,jdbcType=VARCHAR},
+			</if>
+			<if test="phone != null">
+				phone = #{phone,jdbcType=VARCHAR},
+			</if>
+			<if test="email != null">
+				email = #{email,jdbcType=VARCHAR},
+			</if>
+			<if test="qq != null">
+				qq = #{qq,jdbcType=INTEGER},
+			</if>
+		</set>
+		where tid = #{tid,jdbcType=INTEGER}
+	</update>
+	<!-- 修改已存在教师信息 -->
+	<update id="updateByPrimaryKey" parameterType="com.xawl.study.model.Teacher">
+		update teacher
+		set
+		account = #{account,jdbcType=VARCHAR},
+		pwd = #{pwd,jdbcType=VARCHAR},
+		username = #{username,jdbcType=VARCHAR},
+		redesc =
+		#{redesc,jdbcType=VARCHAR},
+		phone = #{phone,jdbcType=VARCHAR},
+		email =
+		#{email,jdbcType=VARCHAR},
+		qq = #{qq,jdbcType=INTEGER}
+		where tid =
+		#{tid,jdbcType=INTEGER}
+	</update>
+
+	<!-- 教师密码重置 -->
+	<update id="RepwdByPrimaryKey" parameterType="java.util.Map">
+		update teacher set
+		pwd=#{pwd}
+		where tid = #{tid}
+	</update>
+
+</mapper>

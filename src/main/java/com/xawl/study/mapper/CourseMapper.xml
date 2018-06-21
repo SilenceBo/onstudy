@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xawl.study.dao.CourseMapper">
+	<resultMap id="BaseResultMap" type="com.xawl.study.model.Course">
+		<id column="cid" property="cid" jdbcType="INTEGER" />
+		<result column="cname" property="cname" jdbcType="VARCHAR" />
+		<result column="date" property="date" jdbcType="DATE" />
+		<result column="tid" property="tid" jdbcType="INTEGER" />
+		<result column="fid" property="fid" jdbcType="INTEGER" />
+		<result column="redesc" property="redesc" jdbcType="VARCHAR" />
+		<result column="iid" property="iid" jdbcType="INTEGER" />
+		<result column="linkNum" property="linknum" jdbcType="INTEGER" />
+		<result column="iorder" property="iorder" jdbcType="BIT" />
+		<result column="image" property="image" jdbcType="VARCHAR" />
+		<result column="grade" property="grade" jdbcType="INTEGER" />
+		<result column="mid" property="mid" jdbcType="INTEGER" />
+		<result column="logClick" property="logclick" jdbcType="INTEGER" />
+		<result column="unlogClick" property="unlogclick" jdbcType="INTEGER" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		cid, cname, date, tid, fid, redesc, iid, linkNum, iorder,
+		image, grade,
+		mid, logClick, unlogClick
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from course
+		where cid = #{cid,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from course
+		where cid = #{cid,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.xawl.study.model.Course">
+		insert into course (cid,
+		cname, date,
+		tid, fid, redesc, iid,
+		linkNum, iorder, image,
+		grade, mid)
+		values (#{cid,jdbcType=INTEGER}, #{cname,jdbcType=VARCHAR},
+		#{date,jdbcType=DATE},
+		#{tid,jdbcType=INTEGER},
+		#{fid,jdbcType=INTEGER}, #{redesc,jdbcType=VARCHAR},
+		#{iid,jdbcType=INTEGER},
+		#{linknum,jdbcType=INTEGER},
+		#{iorder,jdbcType=BIT}, #{image,jdbcType=VARCHAR},
+		#{grade,jdbcType=INTEGER}, #{mid,jdbcType=INTEGER})
+	</insert>
+	<insert id="insertSelective" parameterType="com.xawl.study.model.Course">
+		insert into course
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="cid != null">
+				cid,
+			</if>
+			<if test="cname != null">
+				cname,
+			</if>
+			<if test="date != null">
+				date,
+			</if>
+			<if test="tid != null">
+				tid,
+			</if>
+			<if test="fid != null">
+				fid,
+			</if>
+			<if test="redesc != null">
+				redesc,
+			</if>
+			<if test="iid != null">
+				iid,
+			</if>
+			<if test="linknum != null">
+				linkNum,
+			</if>
+			<if test="iorder != null">
+				iorder,
+			</if>
+			<if test="image != null">
+				image,
+			</if>
+			<if test="grade != null">
+				grade,
+			</if>
+			<if test="mid != null">
+				mid,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="cid != null">
+				#{cid,jdbcType=INTEGER},
+			</if>
+			<if test="cname != null">
+				#{cname,jdbcType=VARCHAR},
+			</if>
+			<if test="date != null">
+				#{date,jdbcType=DATE},
+			</if>
+			<if test="tid != null">
+				#{tid,jdbcType=INTEGER},
+			</if>
+			<if test="fid != null">
+				#{fid,jdbcType=INTEGER},
+			</if>
+			<if test="redesc != null">
+				#{redesc,jdbcType=VARCHAR},
+			</if>
+			<if test="iid != null">
+				#{iid,jdbcType=INTEGER},
+			</if>
+			<if test="linknum != null">
+				#{linknum,jdbcType=INTEGER},
+			</if>
+			<if test="iorder != null">
+				#{iorder,jdbcType=BIT},
+			</if>
+			<if test="image != null">
+				#{image,jdbcType=VARCHAR},
+			</if>
+			<if test="grade != null">
+				#{grade,jdbcType=INTEGER},
+			</if>
+			<if test="mid != null">
+				#{mid,jdbcType=INTEGER},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.xawl.study.model.Course">
+		update course
+		<set>
+			<if test="cname != null">
+				cname = #{cname,jdbcType=VARCHAR},
+			</if>
+			<if test="date != null">
+				date = #{date,jdbcType=DATE},
+			</if>
+			<if test="tid != null">
+				tid = #{tid,jdbcType=INTEGER},
+			</if>
+			<if test="fid != null">
+				fid = #{fid,jdbcType=INTEGER},
+			</if>
+			<if test="redesc != null">
+				redesc = #{redesc,jdbcType=VARCHAR},
+			</if>
+			<if test="iid != null">
+				iid = #{iid,jdbcType=INTEGER},
+			</if>
+			<if test="linknum != null">
+				linkNum = #{linknum,jdbcType=INTEGER},
+			</if>
+			<if test="iorder != null">
+				iorder = #{iorder,jdbcType=BIT},
+			</if>
+			<if test="image != null">
+				image = #{image,jdbcType=VARCHAR},
+			</if>
+			<if test="grade != null">
+				grade = #{grade,jdbcType=INTEGER},
+			</if>
+			<if test="mid != null">
+				mid = #{mid,jdbcType=INTEGER},
+			</if>
+		</set>
+		where cid = #{cid,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.xawl.study.model.Course">
+		update course
+		set
+		cname = #{cname,jdbcType=VARCHAR},
+		date = #{date,jdbcType=DATE},
+		tid =
+		#{tid,jdbcType=INTEGER},
+		fid = #{fid,jdbcType=INTEGER},
+		redesc =
+		#{redesc,jdbcType=VARCHAR},
+		iid = #{iid,jdbcType=INTEGER},
+		linkNum =
+		#{linknum,jdbcType=INTEGER},
+		iorder = #{iorder,jdbcType=BIT},
+		image =
+		#{image,jdbcType=VARCHAR},
+		grade = #{grade,jdbcType=INTEGER},
+		mid =
+		#{mid,jdbcType=INTEGER}
+		where cid = #{cid,jdbcType=INTEGER}
+	</update>
+
+
+	<!-- zb -->
+	<resultMap type="com.xawl.study.model.CourseCustomer" id="CourseResultMap">
+		<id column="cid" property="cid" jdbcType="INTEGER" />
+		<result column="cname" property="cname" jdbcType="VARCHAR" />
+		<result column="date" property="date" jdbcType="DATE" />
+		<result column="redesc" property="redesc" jdbcType="VARCHAR" />
+		<result column="linkNum" property="linknum" jdbcType="INTEGER" />
+		<result column="iorder" property="iorder" jdbcType="BIT" />
+		<result column="image" property="image" jdbcType="VARCHAR" />
+		<result column="grade" property="grade" jdbcType="INTEGER" />
+		<association property="dbTeacher" javaType="com.xawl.study.model.Teacher">
+			<id column="tid" property="tid" jdbcType="INTEGER" />
+			<result column="username" property="username" jdbcType="VARCHAR" />
+			<result column="teacher_redesc" property="redesc" jdbcType="VARCHAR" />
+		</association>
+		<association property="dbFangxiang" javaType="com.xawl.study.model.Fangxiang">
+			<id column="fid" property="fid" jdbcType="INTEGER" />
+			<result column="fname" property="fname" jdbcType="VARCHAR" />
+		</association>
+		<association property="dbInterest" javaType="com.xawl.study.model.Interest">
+			<id column="iid" property="iid" jdbcType="INTEGER" />
+			<result column="iname" property="iname" jdbcType="VARCHAR" />
+		</association>
+		<association property="dbMajor" javaType="com.xawl.study.model.Major">
+			<id column="mid" property="mid" jdbcType="INTEGER" />
+			<result column="mname" property="mname" jdbcType="VARCHAR" />
+		</association>
+	</resultMap>
+
+
+	<select id="findAll" resultMap="CourseResultMap">
+		SELECT
+		course.cid,course.cname,course.date,course.redesc,
+		course.linkNum,course.iorder,course.image,course.grade,
+		teacher.tid,teacher.username,teacher.redesc AS teacher_redesc,
+		fangxiang.fid,fangxiang.fname,
+		interest.iid,interest.iname,
+		major.mid,major.mname
+		FROM
+		course,teacher,
+		fangxiang,interest,
+		major
+		WHERE
+		course.tid = teacher.tid
+		AND course.fid = fangxiang.fid
+		AND course.iid
+		=interest.iid
+		AND course.mid =major.mid
+		ORDER BY `linkNum` DESC,
+		DATE
+		DESC
+	</select>
+
+	<delete id="deleteCourseBycid">
+		delete from course where cid in
+		<foreach collection="array" open="(" close=")" separator=","
+			item="ids">
+			#{ids}
+		</foreach>
+	</delete>
+
+	<select id="SelectCourse" parameterType="com.xawl.study.model.CourseCustomer"
+		resultMap="CourseResultMap">
+		SELECT
+		course.cid,course.cname,course.date,course.redesc,
+		course.linkNum,course.iorder,course.image,course.grade,
+		teacher.tid,teacher.username,teacher.redesc AS teacher_redesc,
+		fangxiang.fid,fangxiang.fname,
+		interest.iid,interest.iname,
+		major.mid,major.mname
+		FROM
+		course,teacher,
+		fangxiang,interest,
+		major
+		<where>
+			<if test="cname != null">
+				and cname like '%${cname}%'
+			</if>
+			<if test="date !=null">
+				and date like '%${date}%'
+			</if>
+			<if test="redesc != null">
+				and redesc like '%${redesc}%'
+			</if>
+			<if test="iorder != null">
+				and iorder = #{iorder}
+			</if>
+			<!-- <if test="tid !=null"> and dbTeacher.tid = #{tid} </if> -->
+			<if test="dbTeacher != null">
+				and teacher.username like '%${dbTeacher.username}%'
+			</if>
+			<!-- <if test="fid !=null"> and dbFangxiang.fid = #{fid} </if> -->
+			<if test="dbFangxiang != null">
+				and fangxiang.fname like '%${dbFangxiang.fname}%'
+			</if>
+			<!-- <if test="iid !=null"> and dbInterest.iid = #{iid} </if> -->
+			<if test="dbInterest != null">
+				and interest.iname like '%${dbInterest.iname}%'
+			</if>
+			<if test="dbMajor != null">
+				and major.mname like '%${dbMajor.mname}%'
+			</if>
+			AND course.tid = teacher.tid
+			AND course.fid = fangxiang.fid
+			AND
+			course.iid = interest.iid
+			AND course.mid =major.mid
+			ORDER BY `linkNum`
+			DESC,
+			DATE DESC
+		</where>
+	</select>
+
+	<select id="SelectCourseByAll" parameterType="com.xawl.study.model.CourseCustomer"
+		resultMap="CourseResultMap">
+		SELECT
+		course.cid,course.cname,course.date,course.redesc,
+		course.linkNum,course.iorder,course.image,course.grade,
+		teacher.tid,teacher.username,teacher.redesc AS teacher_redesc,
+		fangxiang.fid,fangxiang.fname,
+		interest.iid,interest.iname,
+		major.mid,major.mname
+		FROM
+		course,teacher,
+		fangxiang,interest,
+		major
+		<trim prefix="where (" prefixOverrides="or" suffix=")">
+			<if test="cname != null">
+				or cname like '%${cname}%'
+			</if>
+			<if test="dbTeacher != null">
+				or teacher.username like '%${dbTeacher.username}%'
+			</if>
+			<if test="dbMajor != null">
+				or major.mname like '%${dbMajor.mname}%'
+			</if>
+		</trim>
+		AND course.tid = teacher.tid
+		AND course.fid = fangxiang.fid
+		AND
+		course.iid = interest.iid
+		AND course.mid =major.mid
+		ORDER BY `linkNum`
+		DESC,
+		DATE DESC
+	</select>
+
+	<select id="SelectCourseByCid" parameterType="com.xawl.study.model.CourseCustomer"
+		resultMap="CourseResultMap">
+		SELECT
+		course.cid,course.cname,course.date,course.redesc,
+		course.linkNum,course.iorder,course.image,course.grade,
+		teacher.tid,teacher.username,teacher.redesc AS teacher_redesc,
+		fangxiang.fid,fangxiang.fname,
+		interest.iid,interest.iname,
+		major.mid,major.mname
+		FROM
+		course,teacher,
+		fangxiang,interest,
+		major
+		WHERE
+		cid = #{cid}
+		AND course.tid = teacher.tid
+		AND course.fid = fangxiang.fid
+		AND course.iid = interest.iid
+		AND course.mid =major.mid
+		ORDER BY DATE
+		DESC
+	</select>
+
+	<select id="selectCourseByiid" parameterType="com.xawl.study.model.CourseCustomer"
+		resultMap="CourseResultMap">
+		SELECT
+		course.*,
+		teacher.tid,teacher.username,teacher.redesc
+		AS teacher_redesc,
+		fangxiang.fid,fangxiang.fname,
+		interest.iid,interest.iname,
+		major.mid,major.mname
+		FROM
+		course,teacher,
+		fangxiang,interest,
+		major
+		WHERE
+		course.iid = #{iid}
+		AND course.tid =
+		teacher.tid
+		AND course.fid =
+		fangxiang.fid
+		AND course.iid = interest.iid
+		AND course.mid =major.mid
+		ORDER BY `linkNum` DESC,
+		DATE DESC
+	</select>
+
+	<select id="selectCourseByfid" parameterType="com.xawl.study.model.CourseCustomer"
+		resultMap="CourseResultMap">
+		SELECT
+		course.*,
+		teacher.tid,teacher.username,teacher.redesc
+		AS teacher_redesc,
+		fangxiang.fid,fangxiang.fname,
+		interest.iid,interest.iname,
+		major.mid,major.mname
+		FROM
+		course,teacher,
+		fangxiang,interest,
+		major
+		WHERE
+		course.fid = #{fid}
+		AND course.tid =
+		teacher.tid
+		AND course.fid =
+		fangxiang.fid
+		AND course.iid = interest.iid
+		AND course.mid =major.mid
+		ORDER BY `linkNum` DESC,
+		DATE DESC
+	</select>
+
+	<select id="findByLinkNum" parameterType="com.xawl.study.model.CourseCustomer"
+		resultMap="CourseResultMap">
+		SELECT
+		course.*,
+		teacher.tid,teacher.username,teacher.redesc
+		AS teacher_redesc,
+		fangxiang.fid,fangxiang.fname,
+		interest.iid,interest.iname,
+		major.mid,major.mname
+		FROM
+		course,teacher,
+		fangxiang,interest,
+		major
+		WHERE
+		course.tid = teacher.tid
+		AND course.fid =
+		fangxiang.fid
+		AND course.mid =major.mid
+		AND course.iid =
+		interest.iid
+		ORDER BY `linkNum` DESC, DATE DESC LIMIT 12
+	</select>
+	<select id="SelectCourseBytid" parameterType="java.lang.Integer"
+		resultMap="CourseResultMap">
+		SELECT
+		course.*,
+		teacher.tid,teacher.username,teacher.redesc
+		AS teacher_redesc,
+		fangxiang.fid,fangxiang.fname,
+		interest.iid,interest.iname,
+		major.mid,major.mname
+		FROM
+		course,teacher,
+		fangxiang,interest,
+		major
+		where
+		course.tid=#{tid}
+		AND course.tid =
+		teacher.tid
+		AND course.fid =fangxiang.fid
+		AND course.iid = interest.iid
+		AND course.mid =major.mid
+		ORDER BY `linkNum` DESC,
+		DATE DESC
+	</select>
+
+	<select id="selectCourseBygrade" parameterType="com.xawl.study.model.CourseCustomer"
+		resultMap="CourseResultMap">
+		SELECT
+		course.*,
+		teacher.tid,teacher.username,teacher.redesc
+		AS teacher_redesc,
+		fangxiang.fid,fangxiang.fname,
+		interest.iid,interest.iname,
+		major.mid,major.mname
+		FROM
+		course,teacher,
+		fangxiang,interest,
+		major
+		WHERE
+		course.grade = #{grade}
+		AND course.tid =
+		teacher.tid
+		AND course.fid =fangxiang.fid
+		AND course.iid = interest.iid
+		AND course.mid =major.mid
+		ORDER BY `linkNum` DESC,
+		DATE DESC
+	</select>
+
+	<select id="selectCourseBymid" parameterType="com.xawl.study.model.CourseCustomer"
+		resultMap="CourseResultMap">
+		SELECT
+		course.*,
+		teacher.tid,teacher.username,teacher.redesc
+		AS teacher_redesc,
+		fangxiang.fid,fangxiang.fname,
+		interest.iid,interest.iname,
+		major.mid,major.mname
+		FROM
+		course,teacher,
+		fangxiang,interest,
+		major
+		WHERE
+		course.grade = #{grade}
+		AND course.mid =
+		#{mid}
+		AND course.tid = teacher.tid
+		AND course.fid =fangxiang.fid
+		AND
+		course.iid = interest.iid
+		AND course.mid =major.mid
+		ORDER BY `linkNum`
+		DESC,
+		DATE DESC
+	</select>
+
+	<update id="updateLinkNum" parameterType="java.lang.Integer">
+		update course
+		set
+		linkNum = linkNum+1
+		where cid = #{cid,jdbcType=INTEGER}
+	</update>
+
+	<update id="updateLinkNumDel" parameterType="java.lang.Integer">
+		update course
+		set
+		linkNum = linkNum-1
+		where cid = #{cid,jdbcType=INTEGER}
+	</update>
+
+	<update id="updatelogClick">
+		update course
+		set
+		logClick = logClick+1
+		where cid =
+		#{cid,jdbcType=INTEGER}
+	</update>
+
+	<update id="updateunlogClick">
+		update course
+		set
+		unlogClick = unlogClick+1
+		where cid =
+		#{cid,jdbcType=INTEGER}
+	</update>
+	<!-- 董涛:查询课程数量 -->
+	<select id="selectCount" resultType="java.lang.Integer">
+		select count(*) from course
+	</select>
+</mapper>

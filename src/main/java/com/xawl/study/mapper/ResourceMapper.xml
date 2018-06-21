@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xawl.study.dao.ResourceMapper">
+	<resultMap id="BaseResultMap" type="com.xawl.study.model.Resource">
+		<id column="rid" property="rid" jdbcType="INTEGER" />
+		<result column="resourceName" property="resourceName" jdbcType="VARCHAR" />
+		<result column="resume" property="resume" jdbcType="VARCHAR" />
+		<result column="iid" property="iid" jdbcType="INTEGER" />
+		<result column="date" property="date" jdbcType="TIMESTAMP" />
+		<result column="resourceType" property="resourceType" jdbcType="INTEGER" />
+		<result column="ok_read" property="okRead" jdbcType="TINYINT" />
+		<result column="tid" property="tid" jdbcType="INTEGER" />
+		<result column="fid" property="fid" jdbcType="INTEGER" />
+		<result column="cid" property="cid" jdbcType="INTEGER" />
+		<result column="ordery" property="ordery" jdbcType="INTEGER" />
+		<result column="image" property="image" jdbcType="VARCHAR" />
+		<result column="src" property="src" jdbcType="VARCHAR" />
+		<result column="answerSrc" property="answerSrc" jdbcType="VARCHAR" />
+		<result column="answerString" property="answerString" jdbcType="VARCHAR" />
+	</resultMap>
+
+
+	<sql id="Base_Column_List">
+		rid, resourceName, resume, iid, date, resourceType,
+		ok_read, tid, fid,src,answerString,answerSrc,
+		cid, ordery,
+		image,clickNum
+	</sql>
+	<select id="findVoideoNumByCid" resultType="java.lang.Integer"
+		parameterType="java.lang.Integer">
+		SELECT COUNT(*) FROM resource WHERE resource.resourceType IN(1,3) AND
+		cid=#{cid}
+	</select>
+	<select id="findResourceNumByCid" resultType="java.lang.Integer"
+		parameterType="java.lang.String">
+		select count(*) from resource where cid=#{cid}
+	</select>
+	<select id="selectByCidAndOredry" resultType="com.xawl.study.model.Resource"
+		parameterType="com.xawl.study.model.Resource">
+		select
+		<include refid="Base_Column_List" />
+		from resource
+		where cid=#{cid} and ordery =#{ordery}
+	</select>
+	<select id="findByRTypeNo1" resultType="com.xawl.study.model.Resource"
+		parameterType="java.lang.Integer">
+
+		select
+		<include refid="Base_Column_List" />
+		from resource
+		where cid=#{cid} and resourceType !=1
+	</select>
+
+	<select id="findByCidAndType" resultType="com.xawl.study.model.Resource"
+		parameterType="java.lang.Integer">
+
+		select
+		<include refid="Base_Column_List" />
+		from resource
+		where cid=#{cid} and resourceType =1
+	</select>
+
+	<select id="selectMaxOrdery" resultType="java.lang.Integer"
+		parameterType="java.util.Map">
+		select max(ordery)
+		from resource where cid=#{cid} and
+		ordery &lt; #{ordery}
+	</select>
+
+	<select id="selectMaxOrderyByCid" resultType="java.lang.Integer"
+		parameterType="java.util.Map">
+		SELECT MAX(ordery) FROM resource WHERE cid =#{cid}
+	</select>
+
+	<select id="selectMinOrdery" resultType="java.lang.Integer"
+		parameterType="java.lang.Integer">
+		select min(ordery)
+		from resource Where cid=#{cid}
+	</select>
+
+	<select id="selectCountVedioByCid" parameterType="java.lang.Integer"
+		resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM resource WHERE cid=#{cid} AND
+		resourceType=1
+
+	</select>
+
+	<select id="selectCourseByCid" resultType="com.xawl.study.model.CourseCustomer"
+		parameterType="java.lang.Integer">
+		select linkNum,cname,redesc,image from course
+		where
+		cid=#{cid}
+	</select>
+
+	<select id="selectAll" parameterType="java.lang.Integer"
+		resultType="com.xawl.study.model.Resource">
+		select
+		<include refid="Base_Column_List" />
+		from resource
+		where cid=#{cid}
+		ORDER BY ordery
+	</select>
+	<select id="selectResourceNameBYRid" resultType="java.lang.String"
+		parameterType="java.lang.Integer">
+		select resourceName from resource
+		where rid=#{rid}
+	</select>
+	<select id="selectByPrimaryKey" resultType="com.xawl.study.model.Resource"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from resource
+		where rid = #{rid,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from
+		resource
+		where rid = #{rid,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.xawl.study.model.Resource">
+		insert into resource (rid,
+		resourceName, resume,
+		iid, date, resourceType,
+		ok_read, tid, fid, cid,
+		ordery, image)
+		values (#{rid,jdbcType=INTEGER},
+		#{resourceName,jdbcType=VARCHAR},
+		#{resume,jdbcType=VARCHAR},
+		#{iid,jdbcType=INTEGER}, #{date,jdbcType=TIMESTAMP},
+		#{resourceType,jdbcType=INTEGER},
+		#{okRead,jdbcType=TINYINT},
+		#{tid,jdbcType=INTEGER},
+		#{fid,jdbcType=INTEGER},
+		#{cid,jdbcType=INTEGER},
+		#{ordery,jdbcType=INTEGER},
+		#{image,jdbcType=VARCHAR})
+	</insert>
+	<insert id="insertResource" parameterType="com.xawl.study.model.Resource">
+		insert into resource
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="answerSrc!=null">
+				answerSrc,
+			</if>
+
+			<if test="answerString!=null">
+				answerString,
+			</if>
+			<if test="src!=null">
+				src,
+			</if>
+			<if test="resourceName != null">
+				resourceName,
+			</if>
+			<if test="resume != null">
+				resume,
+			</if>
+			<if test="iid != null">
+				iid,
+			</if>
+			<if test="date != null">
+				date,
+			</if>
+			<if test="resourceType != null">
+				resourceType,
+			</if>
+			<if test="okRead != null">
+				ok_read,
+			</if>
+			<if test="tid != null">
+				tid,
+			</if>
+			<if test="fid != null">
+				fid,
+			</if>
+			<if test="cid != null">
+				cid,
+			</if>
+			<if test="ordery != null">
+				ordery,
+			</if>
+			<if test="image != null">
+				image,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="answerSrc!=null">
+				#{answerSrc},
+			</if>
+
+			<if test="answerString!=null">
+				#{answerString},
+			</if>
+
+			<if test="src!=null">
+				#{src},
+			</if>
+			<if test="resourceName != null">
+				#{resourceName,jdbcType=VARCHAR},
+			</if>
+			<if test="resume != null">
+				#{resume,jdbcType=VARCHAR},
+			</if>
+			<if test="iid != null">
+				#{iid,jdbcType=INTEGER},
+			</if>
+			<if test="date != null">
+				#{date,jdbcType=VARCHAR},
+			</if>
+			<if test="resourceType != null">
+				#{resourceType,jdbcType=INTEGER},
+			</if>
+			<if test="okRead != null">
+				#{okRead,jdbcType=TINYINT},
+			</if>
+			<if test="tid != null">
+				#{tid,jdbcType=INTEGER},
+			</if>
+			<if test="fid != null">
+				#{fid,jdbcType=INTEGER},
+			</if>
+			<if test="cid != null">
+				#{cid,jdbcType=INTEGER},
+			</if>
+			<if test="ordery != null">
+				#{ordery,jdbcType=INTEGER},
+			</if>
+			<if test="image != null">
+				#{image,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+
+	<insert id="insertSelective" parameterType="com.xawl.study.model.Resource">
+		insert into resource
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="answerSrc!=null">
+				answerSrc,
+			</if>
+
+			<if test="answerString!=null">
+				answerString,
+			</if>
+			<if test="rid != null">
+				rid,
+			</if>
+			<if test="src!=null">
+				src,
+			</if>
+
+			<if test="resourceName != null">
+				resourceName,
+			</if>
+			<if test="resume != null">
+				resume,
+			</if>
+			<if test="iid != null">
+				iid,
+			</if>
+			<if test="date != null">
+				date,
+			</if>
+			<if test="resourceType != null">
+				resourceType,
+			</if>
+			<if test="okRead != null">
+				ok_read,
+			</if>
+			<if test="tid != null">
+				tid,
+			</if>
+			<if test="fid != null">
+				fid,
+			</if>
+			<if test="cid != null">
+				cid,
+			</if>
+			<if test="ordery != null">
+				ordery,
+			</if>
+			<if test="image != null">
+				image,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="answerSrc!=null">
+				#{answerSrc},
+			</if>
+
+			<if test="answerString!=null">
+				#{answerString},
+			</if>
+			<if test="rid != null">
+				#{rid,jdbcType=INTEGER},
+			</if>
+
+			<if test="src!=null">
+				#{src},
+			</if>
+
+			<if test="resourceName != null">
+				#{resourceName,jdbcType=VARCHAR},
+			</if>
+			<if test="resume != null">
+				#{resume,jdbcType=VARCHAR},
+			</if>
+			<if test="iid != null">
+				#{iid,jdbcType=INTEGER},
+			</if>
+			<if test="date != null">
+				#{date,jdbcType=TIMESTAMP},
+			</if>
+			<if test="resourceType != null">
+				#{resourceType,jdbcType=INTEGER},
+			</if>
+			<if test="okRead != null">
+				#{okRead,jdbcType=TINYINT},
+			</if>
+			<if test="tid != null">
+				#{tid,jdbcType=INTEGER},
+			</if>
+			<if test="fid != null">
+				#{fid,jdbcType=INTEGER},
+			</if>
+			<if test="cid != null">
+				#{cid,jdbcType=INTEGER},
+			</if>
+			<if test="ordery != null">
+				#{ordery,jdbcType=INTEGER},
+			</if>
+			<if test="image != null">
+				#{image,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.xawl.study.model.Resource">
+		update resource
+		<set>
+			<if test="answerSrc!=null">
+				answerSrc=#{answerSrc},
+			</if>
+			<if test="answerString!=null">
+				answerString=#{answerString},
+			</if>
+			<if test="src!=null">
+				src=#{src},
+			</if>
+			<if test="resourceName != null">
+				resourceName = #{resourceName,jdbcType=VARCHAR},
+			</if>
+			<if test="resume != null">
+				resume = #{resume,jdbcType=VARCHAR},
+			</if>
+			<if test="iid != null">
+				iid = #{iid,jdbcType=INTEGER},
+			</if>
+			<if test="date != null">
+				date = #{date,jdbcType=TIMESTAMP},
+			</if>
+			<if test="resourceType != null">
+				resourceType = #{resourceType,jdbcType=INTEGER},
+			</if>
+			<if test="okRead != null">
+				ok_read = #{okRead,jdbcType=TINYINT},
+			</if>
+			<if test="tid != null">
+				tid = #{tid,jdbcType=INTEGER},
+			</if>
+			<if test="fid != null">
+				fid = #{fid,jdbcType=INTEGER},
+			</if>
+			<if test="cid != null">
+				cid = #{cid,jdbcType=INTEGER},
+			</if>
+			<if test="ordery != null">
+				ordery = #{ordery,jdbcType=INTEGER},
+			</if>
+			<if test="image != null">
+				image = #{image,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where rid = #{rid,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.xawl.study.model.Resource">
+		update resource
+		set resourceName = #{resourceName,jdbcType=VARCHAR},
+		resume =
+		#{resume,jdbcType=VARCHAR},
+		iid = #{iid,jdbcType=INTEGER},
+		date =
+		#{date,jdbcType=TIMESTAMP},
+		resourceType =
+		#{resourceType,jdbcType=INTEGER},
+		ok_read = #{okRead,jdbcType=TINYINT},
+		tid = #{tid,jdbcType=INTEGER},
+		fid = #{fid,jdbcType=INTEGER},
+		cid =
+		#{cid,jdbcType=INTEGER},
+		ordery = #{ordery,jdbcType=INTEGER},
+		image =
+		#{image,jdbcType=VARCHAR}
+		where rid = #{rid,jdbcType=INTEGER}
+	</update>
+	<update id="updateOrdery" parameterType="com.xawl.study.model.Resource">
+		UPDATE resource
+		SET
+		ordery=NULL
+		where rid = #{rid,jdbcType=INTEGER}
+	</update>
+</mapper>

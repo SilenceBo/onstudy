@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xawl.study.dao.TeacherAndClassMapper" >
+	
+	<select id="findByTeacherId" parameterType="java.lang.Integer" resultType="com.xawl.study.model.Teaching">
+		SELECT * FROM teach_class WHERE tid=#{value}
+	</select>
+	
+	<select id="selectByTeacherAndClass" parameterType="com.xawl.study.model.TeacherAndClass" resultType="com.xawl.study.model.TeacherAndClass">
+		SELECT * FROM teach_class WHERE tid=#{tid} AND classId=#{classId}
+	</select>
+	
+	<insert id="insertTeacherAndClasss" parameterType="com.xawl.study.model.TeacherAndClass">
+	  	insert into teach_class (tid, classId)
+	    values (#{tid,jdbcType=INTEGER}, #{classId,jdbcType=INTEGER})
+	</insert>
+	
+	<select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultType="com.xawl.study.model.Teaching">
+		SELECT * FROM teach_class WHERE tcid=#{value}
+	</select>
+	
+	<delete id="deleteTeacherAndClasss">	
+		delete from teach_class where tcid in
+  		<foreach collection="array" open="(" close=")" separator="," item="ids">
+    		#{ids}
+    		
+    	</foreach>  		
+	</delete>
+</mapper>

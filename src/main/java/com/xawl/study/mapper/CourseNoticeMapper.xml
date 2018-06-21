@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xawl.study.dao.CourseNoticeMapper" >
+  <resultMap id="BaseResultMap" type="com.xawl.study.model.CourseNotice" >
+    <id column="cnid" property="cnid" jdbcType="INTEGER" />
+    <result column="cname" property="cname" jdbcType="VARCHAR" />
+    <result column="tid" property="tid" jdbcType="INTEGER" />
+    <result column="cid" property="cid" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="text" property="text" jdbcType="VARCHAR" />
+    <result column="isItTimed" property="isittimed" jdbcType="BIT" />
+    <result column="time" property="time" jdbcType="CHAR" />
+    <result column="isSendOut" property="issendout" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    cnid, cname, tid, cid, title, text, isItTimed, time, isSendOut
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.xawl.study.model.CourseNoticeExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from course_notice
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from course_notice
+    where cnid = #{cnid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from course_notice
+    where cnid = #{cnid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.xawl.study.model.CourseNoticeExample" >
+    delete from course_notice
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.xawl.study.model.CourseNotice" >
+    insert into course_notice (cnid, cname, tid, 
+      cid, title, text, isItTimed, 
+      time, isSendOut)
+    values (#{cnid,jdbcType=INTEGER}, #{cname,jdbcType=VARCHAR}, #{tid,jdbcType=INTEGER}, 
+      #{cid,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{text,jdbcType=VARCHAR}, #{isittimed,jdbcType=BIT}, 
+      #{time,jdbcType=CHAR}, #{issendout,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xawl.study.model.CourseNotice" >
+    insert into course_notice
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="cnid != null" >
+        cnid,
+      </if>
+      <if test="cname != null" >
+        cname,
+      </if>
+      <if test="tid != null" >
+        tid,
+      </if>
+      <if test="cid != null" >
+        cid,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="text != null" >
+        text,
+      </if>
+      <if test="isittimed != null" >
+        isItTimed,
+      </if>
+      <if test="time != null" >
+        time,
+      </if>
+      <if test="issendout != null" >
+        isSendOut,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="cnid != null" >
+        #{cnid,jdbcType=INTEGER},
+      </if>
+      <if test="cname != null" >
+        #{cname,jdbcType=VARCHAR},
+      </if>
+      <if test="tid != null" >
+        #{tid,jdbcType=INTEGER},
+      </if>
+      <if test="cid != null" >
+        #{cid,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="text != null" >
+        #{text,jdbcType=VARCHAR},
+      </if>
+      <if test="isittimed != null" >
+        #{isittimed,jdbcType=BIT},
+      </if>
+      <if test="time != null" >
+        #{time,jdbcType=CHAR},
+      </if>
+      <if test="issendout != null" >
+        #{issendout,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.xawl.study.model.CourseNoticeExample" resultType="java.lang.Integer" >
+    select count(*) from course_notice
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update course_notice
+    <set >
+      <if test="record.cnid != null" >
+        cnid = #{record.cnid,jdbcType=INTEGER},
+      </if>
+      <if test="record.cname != null" >
+        cname = #{record.cname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tid != null" >
+        tid = #{record.tid,jdbcType=INTEGER},
+      </if>
+      <if test="record.cid != null" >
+        cid = #{record.cid,jdbcType=INTEGER},
+      </if>
+      <if test="record.title != null" >
+        title = #{record.title,jdbcType=VARCHAR},
+      </if>
+      <if test="record.text != null" >
+        text = #{record.text,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isittimed != null" >
+        isItTimed = #{record.isittimed,jdbcType=BIT},
+      </if>
+      <if test="record.time != null" >
+        time = #{record.time,jdbcType=CHAR},
+      </if>
+      <if test="record.issendout != null" >
+        isSendOut = #{record.issendout,jdbcType=BIT},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update course_notice
+    set cnid = #{record.cnid,jdbcType=INTEGER},
+      cname = #{record.cname,jdbcType=VARCHAR},
+      tid = #{record.tid,jdbcType=INTEGER},
+      cid = #{record.cid,jdbcType=INTEGER},
+      title = #{record.title,jdbcType=VARCHAR},
+      text = #{record.text,jdbcType=VARCHAR},
+      isItTimed = #{record.isittimed,jdbcType=BIT},
+      time = #{record.time,jdbcType=CHAR},
+      isSendOut = #{record.issendout,jdbcType=BIT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xawl.study.model.CourseNotice" >
+    update course_notice
+    <set >
+      <if test="cname != null" >
+        cname = #{cname,jdbcType=VARCHAR},
+      </if>
+      <if test="tid != null" >
+        tid = #{tid,jdbcType=INTEGER},
+      </if>
+      <if test="cid != null" >
+        cid = #{cid,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="text != null" >
+        text = #{text,jdbcType=VARCHAR},
+      </if>
+      <if test="isittimed != null" >
+        isItTimed = #{isittimed,jdbcType=BIT},
+      </if>
+      <if test="time != null" >
+        time = #{time,jdbcType=CHAR},
+      </if>
+      <if test="issendout != null" >
+        isSendOut = #{issendout,jdbcType=BIT},
+      </if>
+    </set>
+    where cnid = #{cnid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xawl.study.model.CourseNotice" >
+    update course_notice
+    set cname = #{cname,jdbcType=VARCHAR},
+      tid = #{tid,jdbcType=INTEGER},
+      cid = #{cid,jdbcType=INTEGER},
+      title = #{title,jdbcType=VARCHAR},
+      text = #{text,jdbcType=VARCHAR},
+      isItTimed = #{isittimed,jdbcType=BIT},
+      time = #{time,jdbcType=CHAR},
+      isSendOut = #{issendout,jdbcType=BIT}
+    where cnid = #{cnid,jdbcType=INTEGER}
+  </update>
+  <!-- 自动生成结束  -->
+  <update id="updateCnameByCid" parameterType="com.xawl.study.model.Course">
+  	update course_notice set cname=#{cname} where cid=#{cid}  
+  </update>
+</mapper>

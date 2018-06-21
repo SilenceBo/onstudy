@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xawl.study.dao.ResourceLogsMapper">
+
+	<sql id="res">
+		rlid,sid,rid,grade,cid,ordery
+	</sql>
+	<update id="updateGrade" parameterType="java.util.Map">
+		update resource_logs set
+		grade=#{grade} where rlid=#{rlid}
+	</update>
+	
+	<update id="updateOredery" parameterType="java.util.Map">
+		update resource_logs set
+		ordery=#{ordery} where rid=#{rid} and cid=#{cid}
+	</update>
+	<delete id="deleteByCidAndRid" parameterType="com.xawl.study.model.Resource">
+		delete from resource_logs where cid=#{cid} and rid=#{rid}
+	</delete>
+	
+	
+	<insert id="insertResourceLogs" parameterType="com.xawl.study.model.ResourceLogs">
+		insert into resource_logs
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="sid!=null">
+				sid,
+			</if>
+			<if test="rid!=null">
+				rid,
+			</if>
+			<if test="cid!=null">
+				cid,
+			</if>
+			<if test="ordery!=null">
+				ordery,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="sid!=null">
+				#{sid},
+			</if>
+			<if test="rid!=null">
+				#{rid},
+			</if>
+			<if test="cid!=null">
+				#{cid},
+			</if>
+			<if test="ordery!=null">
+				#{ordery},
+			</if>
+		</trim>
+	</insert>
+	<select id="selectResByCidAndSidAndOrdery" resultType="com.xawl.study.model.ResourceLogs"
+		parameterType="java.util.Map">
+		select
+		<include refid="res" />
+		from
+		resource_logs where sid=#{sid} and ordery=#{ordery} and cid=#{cid}
+
+	</select>
+	<select id="selectResByRidAndOrdery" resultType="com.xawl.study.model.ResourceLogs"
+		parameterType="java.util.Map">
+		select
+		<include refid="res" />
+		from
+		resource_logs where rid=#{rid} and ordery=#{ordery} and sid=#{sid}
+	</select>
+</mapper>

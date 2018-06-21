@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xawl.study.dao.NoticeLogsMapper" >
+  <resultMap id="BaseResultMap" type="com.xawl.study.model.NoticeLogs" >
+    <id column="nlid" property="nlid" jdbcType="INTEGER" />
+    <result column="tid" property="tid" jdbcType="INTEGER" />
+    <result column="sid" property="sid" jdbcType="INTEGER" />
+    <result column="anid" property="anid" jdbcType="INTEGER" />
+    <result column="cnid" property="cnid" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    nlid, tid, sid, anid, cnid, status
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.xawl.study.model.NoticeLogsExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from notice_logs
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from notice_logs
+    where nlid = #{nlid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from notice_logs
+    where nlid = #{nlid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.xawl.study.model.NoticeLogsExample" >
+    delete from notice_logs
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.xawl.study.model.NoticeLogs" >
+    insert into notice_logs (nlid, tid, sid, 
+      anid, cnid, status)
+    values (#{nlid,jdbcType=INTEGER}, #{tid,jdbcType=INTEGER}, #{sid,jdbcType=INTEGER}, 
+      #{anid,jdbcType=INTEGER}, #{cnid,jdbcType=INTEGER}, #{status,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xawl.study.model.NoticeLogs" >
+    insert into notice_logs
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="nlid != null" >
+        nlid,
+      </if>
+      <if test="tid != null" >
+        tid,
+      </if>
+      <if test="sid != null" >
+        sid,
+      </if>
+      <if test="anid != null" >
+        anid,
+      </if>
+      <if test="cnid != null" >
+        cnid,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="nlid != null" >
+        #{nlid,jdbcType=INTEGER},
+      </if>
+      <if test="tid != null" >
+        #{tid,jdbcType=INTEGER},
+      </if>
+      <if test="sid != null" >
+        #{sid,jdbcType=INTEGER},
+      </if>
+      <if test="anid != null" >
+        #{anid,jdbcType=INTEGER},
+      </if>
+      <if test="cnid != null" >
+        #{cnid,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.xawl.study.model.NoticeLogsExample" resultType="java.lang.Integer" >
+    select count(*) from notice_logs
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update notice_logs
+    <set >
+      <if test="record.nlid != null" >
+        nlid = #{record.nlid,jdbcType=INTEGER},
+      </if>
+      <if test="record.tid != null" >
+        tid = #{record.tid,jdbcType=INTEGER},
+      </if>
+      <if test="record.sid != null" >
+        sid = #{record.sid,jdbcType=INTEGER},
+      </if>
+      <if test="record.anid != null" >
+        anid = #{record.anid,jdbcType=INTEGER},
+      </if>
+      <if test="record.cnid != null" >
+        cnid = #{record.cnid,jdbcType=INTEGER},
+      </if>
+      <if test="record.status != null" >
+        status = #{record.status,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update notice_logs
+    set nlid = #{record.nlid,jdbcType=INTEGER},
+      tid = #{record.tid,jdbcType=INTEGER},
+      sid = #{record.sid,jdbcType=INTEGER},
+      anid = #{record.anid,jdbcType=INTEGER},
+      cnid = #{record.cnid,jdbcType=INTEGER},
+      status = #{record.status,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xawl.study.model.NoticeLogs" >
+    update notice_logs
+    <set >
+      <if test="tid != null" >
+        tid = #{tid,jdbcType=INTEGER},
+      </if>
+      <if test="sid != null" >
+        sid = #{sid,jdbcType=INTEGER},
+      </if>
+      <if test="anid != null" >
+        anid = #{anid,jdbcType=INTEGER},
+      </if>
+      <if test="cnid != null" >
+        cnid = #{cnid,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+    </set>
+    where nlid = #{nlid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xawl.study.model.NoticeLogs" >
+    update notice_logs
+    set tid = #{tid,jdbcType=INTEGER},
+      sid = #{sid,jdbcType=INTEGER},
+      anid = #{anid,jdbcType=INTEGER},
+      cnid = #{cnid,jdbcType=INTEGER},
+      status = #{status,jdbcType=INTEGER}
+    where nlid = #{nlid,jdbcType=INTEGER}
+  </update>
+</mapper>

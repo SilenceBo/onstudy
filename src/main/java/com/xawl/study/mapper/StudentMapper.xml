@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xawl.study.dao.StudentMapper">
+	<resultMap id="BaseResultMap" type="com.xawl.study.model.Student">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="account" property="account" jdbcType="VARCHAR" />
+		<result column="sname" property="sname" jdbcType="VARCHAR" />
+		<result column="sex" property="sex" jdbcType="CHAR" />
+		<result column="pwd" property="pwd" jdbcType="VARCHAR" />
+		<result column="repwd" property="repwd" jdbcType="VARCHAR" />
+		<result column="e_mail" property="e_mail" jdbcType="VARCHAR" />
+		<result column="date" property="date" jdbcType="TIMESTAMP" />
+		<result column="classId" property="classId" jdbcType="INTEGER" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id,account,sname,sex,pwd,repwd,e_mail,date,classId,name
+	</sql>
+
+	<!-- 查询表中总记录数 -->
+	<select id="countsALL" parameterType="java.lang.Integer"
+		resultType="java.lang.Integer">
+		select
+		count(*)
+		from
+		student,classname
+		where student.`classId`
+		= classname.`classId`
+		and
+		classname.classId=#{classId,jdbcType=INTEGER};
+	</select>
+
+	<!--查询- 关联班级表 -->
+	<!-- <select id="findStudentClass" parameterType="java.lang.Integer" resultMap="BaseResultMap"> 
+		select student.*, classname.`name` from student, classname where student.`classId` 
+		= classname.`classId` and student.`id`=#{id,jdbcType=INTEGER} </select> -->
+
+	<!--查询-主键 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="com.xawl.study.model.Student">
+		SELECT
+		student.`id`,
+		student.`account`,
+		student.`sname`,
+		student.`sex`,
+		student.`pwd`,
+		student.`e_mail`,
+		student.`date`,
+		student.`classId`,
+		classname.`name`
+		FROM
+		student,
+		classname
+		WHERE
+		student.`id` =
+		#{id,jdbcType=INTEGER}
+		AND student.`classId` =
+		classname.`classId`
+	</select>
+
+	<!--查询-账号 -->
+	<select id="selectByAccount" resultMap="BaseResultMap"
+		parameterType="com.xawl.study.model.Student">
+		SELECT
+		student.`id`,
+		student.`account`,
+		student.`sname`,
+		student.`sex`,
+		student.`pwd`,
+		student.`e_mail`,
+		student.`date`,
+		student.`classId`,
+		student.`code`,
+		student.`state`,
+		classname.`name`
+		FROM
+		student,
+		classname
+		WHERE
+		student.`account` LIKE
+		'%${value}%'
+		AND
+		student.`classId` =
+		classname.`classId`
+	</select>
+	<select id="selectByAccountLogin" parameterType="java.lang.String"
+		resultType="com.xawl.study.model.Student">
+		select * from student where account=#{account}
+
+	</select>
+	<!--查询-姓名） -->
+	<select id="selectBySname" resultMap="BaseResultMap"
+		parameterType="com.xawl.study.model.Student">
+		SELECT
+		student.`account`,
+		student.`sname`,
+		student.`sex`,
+		student.`pwd`,
+		student.`e_mail`,
+		student.`date`,
+		classname.`name`
+		FROM
+		student,
+		classname
+		WHERE
+		student.`sname` = #{sname,jdbcType=INTEGER}
+		AND
+		student.`classId` =
+		classname.`classId`
+	</select>
+
+
+	<!-- 查询-全部（关联班级表 ） -->
+	<select id="findAll" resultMap="BaseResultMap">
+		select
+		student.*,
+		classname.`name`
+		from
+		student,
+		classname
+		where student.`classId` = classname.`classId`
+		ORDER BY id DESC
+	</select>
+
+	<!-- 删除-通过主键删除 -->
+	<delete id="deleteByPrimaryKey" parameterType="com.xawl.study.model.Student">
+		delete from
+		student where id = #{id,jdbcType=INTEGER}
+	</delete>
+
+	<!-- 删除多条学生记录 -->
+	<delete id="deleteByIds">
+		delete from student where id in
+		<foreach collection="array" open="(" close=")" separator=","
+			item="ids">
+			#{ids}
+		</foreach>
+	</delete>
+
+	<!-- 添加-学生信息 -->
+	<insert id="insert" parameterType="com.xawl.study.model.Student">
+		insert into student
+		(account,sname, sex,pwd, repwd,e_mail,date,classId)
+		value
+		(#{account,jdbcType=VARCHAR},
+		#{sname,jdbcType=VARCHAR},
+		#{sex,jdbcType=CHAR},
+		#{pwd,jdbcType=VARCHAR},
+		#{repwd,jdbcType=VARCHAR},
+		#{e_mail,jdbcType=VARCHAR},
+		#{date,jdbcType=TIMESTAMP},
+		#{classId,jdbcType=INTEGER})
+	</insert>
+
+	<!-- 添加-部分学生信息 -->
+	<insert id="insertSelective" parameterType="com.xawl.study.model.Student">
+		insert into student
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null"> id, </if>
+			<if test="account != null"> account, </if>
+			<if test="sname != null">sname,	</if>
+			<if test="sex != null"> sex, </if>
+			<if test="pwd != null"> pwd, </if>
+			<if test="e_mail != null"> e_mail, </if>
+			<if test="date != null"> date,
+			</if>
+			<if test="classId != null"> classId, </if>
+			<if test="code != null"> code, </if>
+			<if test="state != null"> state, </if>
+		</trim>
+		<trim prefix="values(" suffix=")" suffixOverrides=",">
+			<if test="id != null"> #{id,jdbcType=VARCHAR},</if>
+			<if test="account != null"> #{account,jdbcType=VARCHAR}, </if>
+			<if test="sname != null"> #{sname,jdbcType=VARCHAR}, </if>
+			<if test="sex != null"> #{sex,jdbcType=CHAR}, </if>
+			<if test="pwd != null"> #{pwd,jdbcType=VARCHAR},</if>
+			<if test="e_mail != null"> #{e_mail,jdbcType=VARCHAR}, </if>
+			<if test="date!= null"> #{date,jdbcType=TIMESTAMP}, </if>
+			<if test="classId != null">#{classId,jdbcType=INTEGER},</if>
+			<if test="code!= null"> #{code}, </if>
+			<if test="state != null">#{state},</if>
+		</trim>
+	</insert>
+
+	<!-- 修改-通过主键 -->
+	<update id="updateByPrimaryKey" parameterType="com.xawl.study.model.Student">
+		update student set
+		account= #{account,jdbcType=VARCHAR},
+		sname=#{sname,jdbcType=VARCHAR},
+		sex = #{sex,jdbcType=CHAR},
+		pwd =#{pwd,jdbcType=VARCHAR},
+		repwd
+		=#{repwd,jdbcType=VARCHAR},
+		e_mail =#{e_mail,jdbcType=VARCHAR},
+		date
+		=#{date,jdbcType=TIMESTAMP},
+		classId =#{classId,jdbcType=INTEGER}
+		where
+		id =
+		#{id,jdbcType=INTEGER}
+	</update>
+
+	<!-- 修改-通过主键修改部分信息 -->
+	<update id="updateByPrimaryKeySelective" parameterType="com.xawl.study.model.Student">
+		update student
+		<set>
+			<if test="account != null">
+				account = #{account,jdbcType=VARCHAR},
+			</if>
+			<if test="sname != null">
+				sname = #{sname,jdbcType=VARCHAR},
+			</if>
+			<if test="sex != null">
+				sex = #{sex,jdbcType=CHAR},
+			</if>
+			<if test="pwd != null">
+				pwd = #{pwd,jdbcType=VARCHAR},
+			</if>
+			<if test="repwd != null">
+				repwd = #{repwd,jdbcType=VARCHAR},
+			</if>
+			<if test="name != null">
+				name = #{name,jdbcType=VARCHAR},
+			</if>
+			<if test="e_mail != null">
+				e_mail = #{e_mail,jdbcType=VARCHAR},
+			</if>
+			<if test="classId != null">
+				classId = #{classId,jdbcType=VARCHAR},
+			</if>
+			<if test="date != null">
+				date= #{date,jdbcType=TIMESTAMP},
+			</if>
+		</set>
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	<select id="findByAccount" parameterType="java.lang.String"
+		resultType="java.lang.Integer">
+		select count(*) from student where account=#{account}
+	</select>
+
+	<select id="selectByCode" parameterType="java.lang.String"
+		resultType="com.xawl.study.model.Student">
+		select * from student where code=#{code}
+	</select>
+	<update id="updateCodeByPrimaryKey" parameterType="java.lang.String">
+		update student
+		set state = 1 where id =#{value}
+	</update>
+
+	<select id="findPass" parameterType="com.xawl.study.model.Student"
+		resultType="com.xawl.study.model.Student">
+		SELECT * FROM student WHERE account=#{account} AND e_mail =
+		#{e_mail}
+	</select>
+
+	<select id="selectByClassId" parameterType="java.lang.Integer"
+		resultType="com.xawl.study.model.StudentVo">
+		SELECT * FROM student WHERE classId=#{classId}
+	</select>
+
+	<update id="updatePass" parameterType="com.xawl.study.model.Student">
+		update student set pwd =
+		#{pwd } where id=#{id}
+	</update>
+
+	<update id="updatePassByAccount" parameterType="com.xawl.study.model.Student">
+		update student
+		set pwd =
+		#{pwd } where account=#{account}
+	</update>
+	<select id="selectById" resultType="com.xawl.study.model.Student"
+		parameterType="java.lang.Integer">
+		SELECT * FROM student WHERE id=#{sid }
+	</select>
+</mapper>
